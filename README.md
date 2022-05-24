@@ -44,12 +44,6 @@ When we try to connect for the first time we will be asked to add the key finger
 
 We should now be connected to our personal AWS EC2 instance
 
-# Cloning our repo using Git
-
-We can now clone our repo with the command:
-```
-git clone https://github.com/insqu/sc.git
-```
 
 # Setting up our environment
 
@@ -84,8 +78,18 @@ $ node --version
 ```
 We should get v16.15.0
 
-We will now make a new directory: 
-Call it whatever you like, but here I will call the directory 'sc', the following code will create the directory and move into the directory
+We will now clone a git hub repository (repo)
+
+# Cloning our repo using Git
+
+We can now clone our repo with the command:
+```
+git clone https://github.com/insqu/sc.git
+```
+
+We should now have a directory called `sc`\
+Try the `ls` command and we should see the only directory is `sc`\
+We should now change directory so that we are working in `sc`
 ```sh
 $ mkdir sc
 $ cd mkdir
