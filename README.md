@@ -242,6 +242,16 @@ Hardhat should output a list of 20 accounts, each with their account number, 10,
 # Deploying to a public network 
 Having written our test code and tried them out locally, we are now going to deploy to a real world network
 
+Connecting to a public network is a bit more coplicated that using our own network
+
+We are going to use https://infura.io/ to manage our network 
+First head over to Infura and create a free account 
+
+Now we will run the command
+```sh
+$ npx mnemonics
+```
+
 
 
 
