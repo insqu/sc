@@ -46,7 +46,10 @@ We should now be connected to our personal AWS EC2 instance
 
 # Cloning our repo using Git
 
-
+We can now clone our repo with the command:
+```
+git clone https://github.com/insqu/sc.git
+```
 
 # Setting up our environment
 
