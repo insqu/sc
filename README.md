@@ -244,16 +244,26 @@ Having written our test code and tried them out locally, we are now going to dep
 
 Connecting to a public network is a bit more coplicated that using our own network
 
-We are going to use https://infura.io/ to manage our network 
-First head over to Infura and create a free account 
+We are going to use [alchemy.com]([https://pages.github.com/](https://alchemy.com/?r=DM2MzkzNzUxODAyM)) to manage our network\
+First head over to Alchemy and create a free account 
+> Note: we could use another service, such as Infura, but for our experiment Alchemy will suffice
 
 Now we will run the command
 ```sh
 $ npx mnemonics
 ```
-You may be prompted to install a package first, if so accept\
+You may be prompted to install a package first, if so accept the prompt and install\
 You will then be given 12 words which we will store in a secure file that we will call `sec.mnemonics`\
 Copy and paste your mnemonics into this file (remember we can create a new file using vim)
+
+After you have created this file, we will create a new file called `sec.json`\
+Create this file now, and populate the file with the following lines:
+```vi
+{
+  "mnemonic": "[YOUR_MNEMONICS]",
+  "alchemyApiKey": "[YOUR_APIKEY]"
+}
+```
 
 
 
