@@ -244,7 +244,7 @@ Having written our test code and tried them out locally, we are now going to dep
 
 Connecting to a public network is a bit more coplicated that using our own network
 
-We are going to use [alchemy.com]([https://pages.github.com/](https://alchemy.com/?r=DM2MzkzNzUxODAyM)) to manage our network\
+We are going to use [alchemy.com](https://alchemy.com/?r=DM2MzkzNzUxODAyM) to manage our network\
 First head over to Alchemy and create a free account 
 > Note: we could use another service, such as Infura, but for our experiment Alchemy will suffice
 
