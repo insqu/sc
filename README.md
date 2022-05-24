@@ -276,7 +276,7 @@ Create this file now, and populate the file with the following lines:
   "alchemyApiKey": "[YOUR_APIKEY]"
 }
 ```
-Here `[YOUR_APIKEY]` refers to the API KEY we created from Alchemy earlier 
+Here `[YOUR_APIKEY]` refers to the API KEY we created from Alchemy earlier and `[YOUR_MNEMONICS]` is the list of mnemonics we stored in `sec.mnemonics`
 
 
 
