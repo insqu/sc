@@ -253,7 +253,7 @@ $ npx mnemonics
 ```
 You may be prompted to install a package first, if so accept\
 You will then be given 12 words which we will store in a secure file that we will call `sec.mnemonics`\
-Copy and paste your mnemonics into this file\
+Copy and paste your mnemonics into this file (remember we can create a new file using vim)
 
 
 
