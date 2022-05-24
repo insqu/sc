@@ -91,23 +91,31 @@ We should now have a directory called `sc`\
 Try the `ls` command and we should see the only directory is `sc`\
 We should now change directory so that we are working in `sc`
 ```sc
-$ cd sc
+cd sc
 ```
 We can run the `ls` command now to see that the directory contains a `README.md` file and an `examples` directory
 ```sh
-$ ls
+ls
 ```
-We will now run
+We can remove the `README.md` file:
+```sh
+rm README.md
+```
+For now this is all we will do with git\
+From now on we are going to do all our work in this `sc` directory
+
+
+# Running Hardhat
+
+## Setting up Hardhat
+
+First we will initialise npm
 ```sh
 $ npm init -y
 ```
 We should see an initialisation file\
 If we rerun the `ls` command, we should see that the directory contains the file `package.json`\
-We are going to do all our work in this `sc` directory
 
-
-
-# Setting up Hardhat
 We are going to the use Hardhat enviroment to build out smart contract\
 In our terminal in the `sc` directory we can run:
 ```sh
@@ -120,8 +128,7 @@ npx hardhat
 You will be prompted with questions
 Select the following responses in order 
 - 'Create a basic sample project'
-- enter
-- n
+- accept the suggested project root
 - n
 - y
 
