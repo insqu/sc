@@ -108,10 +108,10 @@ We are going to do all our work in this `sc` directory
 
 
 # Setting up Hardhat
-We are going to the use Hardhat eviroment to build out smart contract
-In our eterminal in the sc directory we can run
+We are going to the use Hardhat enviroment to build out smart contract\
+In our terminal in the `sc` directory we can run:
 ```sh
-$ npm install --save-dev hardhat
+npm install --save-dev hardhat
 ```
 Wait for Hardhat to install, then run
 ```sh
@@ -125,23 +125,22 @@ Select the following responses in order
 - n
 - y
 
-Wait for the install to finish
-
-Once Hardhat has been installed, you will see sometjing like:
+Wait for the setup to complete\
+You should see something like:
 ```
 Project created
 See the README.md file for some example tasks you can run
 ```
-You can read the .md file in any way you like. One suggestion is to use vim:
+You can read the `README.md` file in any way you like\ One suggestion is to use vim:
 ```sh
 vim README.md
 ```
-For those unfamiliar with Vim (or Vi), it can be a little confusing at first. Look up Vim on a search engine to find commands, but for now it is sufficent to simply read the file _with your eyes_, and when you have absorbed it use `:q` to exit out of the vim environment.
+For those unfamiliar with Vim (or Vi), it can be a little confusing at first\ You may want to look up Vim on a search engine to find commands, but for now it is sufficent to simply read the file _with your eyes_, and when you have absorbed it use `:q` to exit out of the vim environment
 
-It is a good opportunity to try the commands in the the `README.md` file, and take a look at the outputs you get. 
+It is a good opportunity to try the commands in the the `README.md` file, and take a look at the outputs you get 
 
 ## Task 1
-Run the command `npx hardhat test` 
+Run the command `npx hardhat test`\
 Then take a look in the test directory, what can we change in here? 
 
 # Building our own contract
