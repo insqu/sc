@@ -91,9 +91,9 @@ We should now have a directory called `sc`\
 Try the `ls` command and we should see the only directory is `sc`\
 We should now change directory so that we are working in `sc`
 ```sc
-$ cd mkdir
+$ cd sc
 ```
-We can run the 'ls' command now to see that the directory is empty
+We can run the 'ls' command now to see that the directory is empty except for a `README.md` file and an `examples` directory
 ```sh
 $ ls
 
