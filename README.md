@@ -44,6 +44,10 @@ When we try to connect for the first time we will be asked to add the key finger
 
 We should now be connected to our personal AWS EC2 instance
 
+# Cloning our repo using Git
+
+
+
 # Setting up our environment
 
 The first thing we will do is make sure our instance is up to date.
