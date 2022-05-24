@@ -242,10 +242,16 @@ Hardhat should output a list of 20 accounts, each with their account number, 10,
 # Deploying to a public network 
 Having written our test code and tried them out locally, we are now going to deploy to a real world network
 
-Connecting to a public network is a bit more coplicated that using our own network
+Connecting to a public network is a bit more coplicated that using our own network\
+To do this, we will make use of a service that simplifies the process of interacting with a blockchain network\
+
+
+## Creating an alchemy account
 
 We are going to use [alchemy.com](https://alchemy.com/?r=DM2MzkzNzUxODAyM) to manage our network\
-First head over to Alchemy and create a free account 
+First head over to Alchemy and create a free account\
+For those who want to know what alchemy is and why we might use it, the alchemy website tries to address that: (https://docs.alchemy.com/alchemy/introduction/why-use-alchemy)
+We will come back to this later
 > Note: we could use another service, such as Infura, but for our experiment Alchemy will suffice
 
 Now we will run the command
