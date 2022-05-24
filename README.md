@@ -90,8 +90,7 @@ git clone https://github.com/insqu/sc.git
 We should now have a directory called `sc`\
 Try the `ls` command and we should see the only directory is `sc`\
 We should now change directory so that we are working in `sc`
-```sh
-$ mkdir sc
+```sc
 $ cd mkdir
 ```
 We can run the 'ls' command now to see that the directory is empty
