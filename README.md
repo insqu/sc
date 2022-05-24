@@ -151,14 +151,14 @@ Run the command `npx hardhat test`\
 Then take a look in the test directory, what can we change in here? 
 
 # Building our own contract
-Lets now run our list command `li` to view the files in the directory
+Lets now run our list command `ls` to view the files in the directory
 We should now see directories, `.json` files `.js` files and `.md` files
 One of the directories will be called `contracts`
 Lets move into the the contracts directory
 ```
 cd contracts
 ```
-We are going to create `solidity` contracts within the `contracts` diretory.
+We are going to create `solidity` contracts within the `contracts` directory
 First we will create a file bbox.sol
 ```
 $ touch bbox.sol
@@ -237,6 +237,14 @@ npx hardhat node
 ```
 Hardhat should output a list of 20 accounts, each with their account number, 10,000 ETH and their corresponding private key
 > **Note:** these are defualt values, do not use these accounts and their private keys for anything other than this demonstration
+
+
+# Deploying to a public network 
+Having written our test code and tried them out locally, we are now going to deploy to a real world network
+
+
+
+
 
 
 
