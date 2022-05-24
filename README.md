@@ -93,18 +93,19 @@ We should now change directory so that we are working in `sc`
 ```sc
 $ cd sc
 ```
-We can run the 'ls' command now to see that the directory is empty except for a `README.md` file and an `examples` directory
+We can run the `ls` command now to see that the directory contains a `README.md` file and an `examples` directory
 ```sh
 $ ls
-
 ```
 We will now run
 ```sh
 $ npm init -y
 ```
-We should see an initialisation file.
-Now we can rerun the 'ls' command to see that the directory contains the file package.json
-Try this now
+We should see an initialisation file\
+If we rerun the `ls` command, we should see that the directory contains the file `package.json`\
+We are going to do all our work in this `sc` directory
+
+
 
 # Setting up Hardhat
 We are going to the use Hardhat eviroment to build out smart contract
