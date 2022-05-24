@@ -250,9 +250,15 @@ To do this, we will make use of a service that simplifies the process of interac
 
 We are going to use [alchemy.com](https://alchemy.com/?r=DM2MzkzNzUxODAyM) to manage our network\
 First head over to Alchemy and create a free account\
-For those who want to know what alchemy is and why we might use it, the alchemy website tries to address that: (https://docs.alchemy.com/alchemy/introduction/why-use-alchemy)
-We will come back to this later
+For those who want to know what alchemy is and why we might use it, the alchemy website has a page devoted to this: https://docs.alchemy.com/alchemy/introduction/why-use-alchemy\
 > Note: we could use another service, such as Infura, but for our experiment Alchemy will suffice
+
+### Setting up a Rinkeby test network account 
+
+When we setup our alchemy app ensure we select `name:  exeter.sc`,  `chain: Ethereum` and `network: Rinkeby`\
+After setup on the main dashboard we should see our Rinkeby network and a column called `API KEY`\
+Make a note of our API KEY and our HTTP connection information\
+
 
 Now we will run the command
 ```sh
@@ -270,7 +276,7 @@ Create this file now, and populate the file with the following lines:
   "alchemyApiKey": "[YOUR_APIKEY]"
 }
 ```
-
+Here `[YOUR_APIKEY]` refers to the API KEY we created from Alchemy earlier 
 
 
 
