@@ -384,4 +384,9 @@ We can then check the balance of any of our accounts with the command
 (await ethers.provider.getBalance(accounts[0])).toString()
 ```
 
+One final thing before we can delpoy our contract: we need some ether in our Rinkeby test network\
+The best way to do this is to simply search for a _Rinkeby faucet_ using a web browser, and provide the faucet with one of the account numbers in the list you returned when you ran `accounts = await ethers.provider.listAccounts()`\
+It is simplest to use the first account number returned. Once you have received some test network eth, you should be able to run `(await ethers.provider.getBalance(accounts[0])).toString()` and see a positive number! 
+
+## Deploying our contract on the Rinkeby network
 
