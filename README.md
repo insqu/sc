@@ -318,22 +318,54 @@ Create this file now, and populate the file with the following lines:
 ```
 Here `[YOUR_APIKEY]` refers to the API KEY we created from Alchemy earlier and `[YOUR_MNEMONICS]` is the list of mnemonics we stored in `sec.mnemonics`
 
-We also need to alter the hardhat config file
+We also need to alter the hardhat config file to include
 ```js
-// hardhat.config.js
-+ const { alchemyApiKey, mnemonic } = require('./sec.json');
-...
+const { alchemyApiKey, mnemonic } = require('./sec.json');
+```
+and under module exports:
+```js
   module.exports = {
-+    networks: {
-+     rinkeby: {
-+       url: `https://eth-rinkeby.alchemyapi.io/v2/${alchemyApiKey}`,
-+       accounts: { mnemonic: mnemonic },
-+     },
-+   },
-...
+    networks: {
+     rinkeby: {
+         url: `https://eth-rinkeby.alchemyapi.io/v2/{YOUR_API_KEY}`,
+        accounts: { mnemonic: mnemonic },
+        },
+       },
 };
 ```
 
+In all your hardhat config file should look sometjing like this:
+```js 
+require("@nomiclabs/hardhat-waffle");
+const { alchemyApiKey, mnemonic } = require('./sec.json');
+// This is a sample Hardhat task. To learn how to create your own go to
+// https://hardhat.org/guides/create-task.html
+
+task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
+  const accounts = await hre.ethers.getSigners();
+
+  for (const account of accounts) {
+    console.log(account.address);
+  }
+});
+
+// You need to export an object to set up your config
+// Go to https://hardhat.org/config/ to learn more
+
+/**
+ * @type import('hardhat/config').HardhatUserConfig
+ */
+module.exports = {
+  solidity: "0.8.4",
+        networks: {
+                rinkeby: {
+                url: `https://eth-rinkeby.alchemyapi.io/v2/{YOUR_API_KEY}`,
+                accounts: { mnemonic: mnemonic },
+     },
+   },
+};
+```
+> note: you must replace `{YOUR_API_KEY}` with your _alchemy API_KEY_ 
 
 
 
