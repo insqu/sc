@@ -135,7 +135,9 @@ Select the following responses in order
 - 'Create a basic sample project'
 - accept the suggested project root
 - n
-- y
+- n
+- y 
+The final selection of yes will install dependencies required to run the pre-built Hardhat contract `Greeter.sol`, which we will look at later
 
 Wait for the setup to complete\
 You should see something like:
@@ -165,17 +167,17 @@ Lets now run our list command `ls` to view the files in the directory
 We should now see directories, `.json` files `.js` files and `.md` files
 One of the directories will be called `contracts`
 Lets move into the the contracts directory
-```
+```sh
 cd contracts
 ```
 We are going to create `solidity` contracts within the `contracts` directory
 First we will create a file bbox.sol
-```
+```sh
 touch bbox.sol
 ```
-This directory should now contain two .`sol` files: `bbox.sol` and `Greeter.sol`
+This directory should now contain two `.sol` files: `bbox.sol` and `Greeter.sol`
 
-We are now going to open the bbox.sol file and write in the contract code below:
+We are now going to open the `bbox.sol` file and write in the contract code below:
 > We can do this quickly by copy-pasting the code below using the vim editor
 
 First we run `vim bbox.sol` which will present us with an empty file\
@@ -212,7 +214,7 @@ contract bbox {
 ```
 
 Now we will ensure that Hardhat is using the right solidity compiler `solc`\
-> Note: our contract bbox.sol uses solidity version `0.8.0`
+> Note: our contract `bbox.sol` uses solidity version `0.8.0`
 We need specify this in our hardhat configuration file
 
 First we will navigate out of the `contracts` directory to our parent `sc` directory
@@ -232,9 +234,9 @@ From the `sc` directory run:
 npx hardhat compile
 ```
 We should get the message `Compiled 1 Solidity file successfully`
-> note: it may say 1 or 2 depending on whether you previously compiled the contracts
+> note: it may say 1 or 3 depending on whether you previously compiled the contracts
 
-The compile command will try to compile all contracts in the contracts directory automatically\
+The compile command will try to compile all contracts in the contracts and examples directory automatically\
 We should now see that the `artifacts` directory has been populated
 
 ## Interacting with our contract
@@ -248,15 +250,39 @@ In this new terminal window, run:
 npx hardhat node
 ```
 Hardhat should output a list of 20 accounts, each with their account number, 10,000 ETH and their corresponding private key
-> **Note:** these are defualt values, do not use these accounts and their private keys for anything other than this demonstration
+> **Note: these are defualt values, do not use these accounts and their private keys for anything other than this demonstration**
+We will leave this terminal window open for now, as it is running a simulated Hardhat blockchain for our development purposes
 
-We could deploy our contracts on this local blockchain provided by Hardhat, however, this is more of an environment for testing and is not publicly reachable. Moreover, when we quit the blockchain process, all state is lost, meaning the contract we have deployed and interacted with no longer exists, and will have to be created again.
+Now lets deploy our Hardhat created `Greeter.sol` contract onto this chain for fun!\
+In our other terminal window (not the one running the hardhat node), we can run
+```sh
+npx hardhat test --network localhost
+```
+This tells hardhat to run the scripts located in the `test` directory, to the network specified as `localhost` (i.e. your machine)\
+After running this succesfully, we should get a return something like: 
+```sh
+Greeter
+Should return the new greeting once it's changed 
+```
+This is pretty boring, but if we take a look in our other terminal window, we should have seen some interesting stuff happening!\
+We should be able to see that two blocks have been created and that in the first block a contract called Greeter has been deployed with the greeting _Hello, World!_, and that in the second block a block the set greeting function has been called that changes _Hello, world!_ to _Hola, mundo!_. We should also see the contract address that has been created and the transaction addresses.
+
+Fantastic, we have actually deployed a real life EVM contract (even if it isn't on a public chain, and it is a very simple contract)
+
+## Task 2
+Take a look at the `Greeter.sol` contract an in the `contracts` directory, and take a look at the scripts used to deploy it in the `test/sample-test.js` file\
+Try to understand how the script interacts with the code. What could you change in the scripts or the contracts code to make the contract perform differently? Change the contract script so that instead of changing to _Hola, mundo!_, it says: _Nobody expects the Spanish Inquisition!_
+
+
+# MAYBE CAN ADD THE OTHER OPENZEPPLIN BBOX code
+
+
+We could now create and deploy our contracts on this local blockchain provided by Hardhat, however, this is more of an environment for testing and is not publicly reachable. Moreover, when we quit the hardhat node process, all state is lost, meaning the contract we have deployed and interacted with no longer exists, and will have to be created again. Try it if you like!
 
 
 # Deploying to a public network 
-Having written our test code and tried them out locally, we are now going to deploy to a real world network
-
-Connecting to a public network is a bit more coplicated that using our own network\
+Having written our test code and tried them out locally, we are now going to deploy to a real world network\
+Connecting to a public network is a bit more involved that using our own built in network\
 To do this, we will make use of a service that simplifies the process of interacting with a blockchain network\
 
 
@@ -269,10 +295,10 @@ For those who want to know what alchemy is and why we might use it, the alchemy 
 
 ### Setting up a Rinkeby test network account 
 
+We are going to deploy on the Rinkeby test network, as this way we wont risk losing actually valuable ether\
 When we setup our alchemy app ensure we select `name:  exeter.sc`,  `chain: Ethereum` and `network: Rinkeby`\
 After setup on the main dashboard we should see our Rinkeby network and a column called `API KEY`\
-Make a note of our API KEY and our HTTP connection information\
-
+Make a note of your API KEY and our HTTP connection information\
 
 Now we will run the command
 ```sh
@@ -291,6 +317,22 @@ Create this file now, and populate the file with the following lines:
 }
 ```
 Here `[YOUR_APIKEY]` refers to the API KEY we created from Alchemy earlier and `[YOUR_MNEMONICS]` is the list of mnemonics we stored in `sec.mnemonics`
+
+We also need to alter the hardhat config file
+```js
+// hardhat.config.js
++ const { alchemyApiKey, mnemonic } = require('./sec.json');
+...
+  module.exports = {
++    networks: {
++     rinkeby: {
++       url: `https://eth-rinkeby.alchemyapi.io/v2/${alchemyApiKey}`,
++       accounts: { mnemonic: mnemonic },
++     },
++   },
+...
+};
+```
 
 
 
