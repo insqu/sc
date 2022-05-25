@@ -334,7 +334,7 @@ and under module exports:
 };
 ```
 
-In all your hardhat config file should look sometjing like this:
+In all your hardhat config file should look something like this:
 ```js 
 require("@nomiclabs/hardhat-waffle");
 const { alchemyApiKey, mnemonic } = require('./sec.json');
@@ -367,6 +367,7 @@ module.exports = {
 ```
 > note: you must replace `{YOUR_API_KEY}` with your _alchemy API_KEY_ 
 
+Now we are ready to interact with the public Rinkeby test network using Hardhat
 
 
 
