@@ -376,12 +376,12 @@ npx hardhat console --network rinkeby
 ```
 If our configuration file is correct we should some text and enter console mode with a `>` presented on screen\
 First lets list our accounts with the command 
-```sh
+```js
 accounts = await ethers.provider.listAccounts()
 ```
 We can then check the balance of any of our accounts with the command  
-```sh
-(await ethers.provider.getBalance(accounts[0])).toString()`
+```js
+(await ethers.provider.getBalance(accounts[0])).toString()
 ```
 
 
