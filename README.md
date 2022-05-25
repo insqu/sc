@@ -1,17 +1,21 @@
-# sc
-# Introduction to building Smart Contracts
+# Deploying Smart Contracts on the Ethereum network
+
 ## Introduction
-We will start by setting up a development enviroment for contracts on an AWS platform and then 
+This `README` document is intended to give you the basic of developing and deploying a smart contract to an Ethereum network\
+The focus is to learn some of the tools you can use to create and deploy smart contracts on the public Ethereum Rinkeby test network\
+The document can be followed as is, and is slef-contained, but there are plenty of jumping off points for developing your own knowledge\
+
+## Who is this guide for
+This guide has been designed with masters level students in mind, specifically those studying at Exeter University\
+An assumption has been made of little coding / scripting experience, though students are expected to be able to learn these conepts quickly\
+This can be completed at home and in your own time, though unfortunately the authors of this document are unable to provide any support over email
 
 ## Setup
-We will be using Solidity to create and deploy a smart contract
+We will start by setting up a development enviroment for our contracts on an AWS EC2 instance, and using Solidity to create our smart contract. We will be using tools and services such as _Node.js, Hardhat, OpenZeppelin, Alchemy, Metamask_
 
-Everything will be self contained, though we will be using guides:
-https://hardhat.org/getting-started/
-https://docs.openzeppelin.com/learn/deploying-and-interacting
+Everything will be self contained, though the following guides will come in very handy: https://hardhat.org/getting-started/ and https://docs.openzeppelin.com/learn/deploying-and-interacting
 
-We will also use Remix IDE
-https://remix-project.org/
+Another good tool to create and test smart contracts is the Remix IDE: https://remix-project.org/ though we stress we **will not** be developing in remix for this tutorial
 
 # Setting up using AWS (Amazon Web Services)
 
