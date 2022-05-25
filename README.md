@@ -11,7 +11,7 @@ An assumption has been made of little coding / scripting experience, though stud
 This can be completed at home and in your own time, though unfortunately the authors of this document are unable to provide any support over email
 
 ## Setup
-We will start by setting up a development enviroment for our contracts on an AWS EC2 instance, and using Solidity to create our smart contract. We will be using tools and services such as _Node.js, Hardhat, OpenZeppelin, Alchemy, Metamask_
+We will start by setting up a development enviroment for our contracts on an AWS EC2 instance, and using Solidity to create our smart contract. We will be using tools and services such as _Node.js, Hardhat, OpenZeppelin, Alchemy_
 
 Everything will be self contained, though the following guides will come in very handy: https://hardhat.org/getting-started/ and https://docs.openzeppelin.com/learn/deploying-and-interacting
 
@@ -239,9 +239,11 @@ We should get the message `Compiled 1 Solidity file successfully`
 The compile command will try to compile all contracts in the contracts and examples directory automatically\
 We should now see that the `artifacts` directory has been populated
 
+We will come back to `bbox.sol` later on, in Task 3
+
 ## Interacting with our contract
 Smart contracts exist on the blockchain, but as of yet, we do not have a blockchain to deploy our contract to\
-Therfore, for this next part we are going to _spin-up_ a local (_local to your own machine_) blockchain to deploy our contracts on\
+Therefore, for this next part we are going to _spin-up_ a local (_local to your own machine_) blockchain to deploy our contracts on\
 Fortunately for us Hardhat provides simple functionality that allows us to do this\
 
 Open a new terminal window and connect to our AWS instance as before, then navigate to our `sc` directory\
@@ -272,10 +274,6 @@ Fantastic, we have actually deployed a real life EVM contract (even if it isn't 
 ## Task 2
 Take a look at the `Greeter.sol` contract an in the `contracts` directory, and take a look at the scripts used to deploy it in the `test/sample-test.js` file\
 Try to understand how the script interacts with the code. What could you change in the scripts or the contracts code to make the contract perform differently? Change the contract script so that instead of changing to _Hola, mundo!_, it says: _Nobody expects the Spanish Inquisition!_
-
-
-# MAYBE CAN ADD THE OTHER OPENZEPPLIN BBOX code
-
 
 We could now create and deploy our contracts on this local blockchain provided by Hardhat, however, this is more of an environment for testing and is not publicly reachable. Moreover, when we quit the hardhat node process, all state is lost, meaning the contract we have deployed and interacted with no longer exists, and will have to be created again. Try it if you like!
 
@@ -384,9 +382,31 @@ We can then check the balance of any of our accounts with the command
 (await ethers.provider.getBalance(accounts[0])).toString()
 ```
 
-One final thing before we can delpoy our contract: we need some ether in our Rinkeby test network\
+One final thing before we can delpoy our contract: we need some ether in our Rinkeby test network
+
+## Getting some Rinkeby eth
 The best way to do this is to simply search for a _Rinkeby faucet_ using a web browser, and provide the faucet with one of the account numbers in the list you returned when you ran `accounts = await ethers.provider.listAccounts()`\
-It is simplest to use the first account number returned. Once you have received some test network eth, you should be able to run `(await ethers.provider.getBalance(accounts[0])).toString()` and see a positive number! 
+It is simplest to use the first account number returned, so we will do that. Once you have received some test network eth, you should be able to run `(await ethers.provider.getBalance(accounts[0])).toString()` and see a positive number! 
 
 ## Deploying our contract on the Rinkeby network
+Now we are ready to deploy our contract on the Rinkeby test network. We can run: 
+```
+npx hardhat test --network rinkeby
+```
+> note: we may have to wait while a block is created
+Once this is complete, we can retrun to our Alchemy tab in our browser and look up the contract that was created\
+If we take a look at the trace in Etherscan we can find the contract we created and decode the raw data using their inbuilt functions, here is an example: https://rinkeby.etherscan.io/tx/0xa703de1f2770a08be1d24e95bb35acf88ce8840e0b8d2e04aa3f82399136f62c
+
+That's it, we did it! We have succesfull created a smart contract and deployed it on an Ethereum network!
+
+## Task 3
+Using the guide from here: https://docs.openzeppelin.com/learn/developing-smart-contracts complete the bbox.sol setup and deploy it locally to the Rinkeby test network\
+> note: in the guide, they use Box.sol, not bbox.sol, so watch out for that
+
+
+## Task 4
+Now the interesting bit, take a look at the OpenZeppelin documents here: https://docs.openzeppelin.com/contracts/4.x/erc20
+and create a more interesting contract.\
+Your contract will be an ERC20 conract, issuing a token.\
+Create and deploy a new token to the Rinkeby network with a cool name, then distribute that token to your colleagues!
 
