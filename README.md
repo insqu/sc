@@ -369,6 +369,14 @@ module.exports = {
 
 Now we are ready to interact with the public Rinkeby test network using Hardhat
 
+## The Hardhat Rinkeby console
+We in the `sc` directory we can run:
+```sh 
+npx hardhat console --network rinkeby
+```
+If our configuration file is correct we should some text and enter console mode with a `>` presented on screen\
+First lets list our accounts with the command `accounts = await ethers.provider.listAccounts()`\
+We can then check the balance of any of our accounts with the command  `(await ethers.provider.getBalance(accounts[0])).toString()
 
 
 
