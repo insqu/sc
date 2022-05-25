@@ -3,7 +3,7 @@
 ## Introduction
 This `README` document is intended to give you the basic of developing and deploying a smart contract to an Ethereum network\
 The focus is to learn some of the tools you can use to create and deploy smart contracts on the public Ethereum Rinkeby test network\
-The document can be followed as is, and is slef-contained, but there are plenty of jumping off points for developing your own knowledge\
+The document can be followed as is, and is slef-contained, but there are plenty of jumping off points for developing your own knowledge
 
 ## Who is this guide for
 This guide has been designed with masters level students in mind, specifically those studying at Exeter University\
@@ -209,14 +209,14 @@ contract bbox {
 ```
 
 Now we will ensure that Hardhat is using the right solidity compiler `solc`\
-> Note: our contract bbox.sol uses solidity version 0.8.0
+> Note: our contract bbox.sol uses solidity version `0.8.0`
 We need specify this in our hardhat configuration file
 
 First we will navigate out of the `contracts` directory to our parent `sc` directory
 ```sc
 cd .. 
 ```
-We can check we are in the correct directory by using the command `pwd`. If we are in the correct directory, we should see /home/ubuntu/sc returned\
+We can check we are in the correct directory by using the command `pwd`. If we are in the correct directory, we should see `/home/ubuntu/sc` returned\
 We can now open the file `hardhat.config.js` using vim
 ```sc
 vim hardhat.config.js
@@ -235,15 +235,19 @@ The compile command will try to compile all contracts in the contracts directory
 We should now see that the `artifacts` directory has been populated
 
 ## Interacting with our contract
-Smart contracts live on the blockchain, but as of yet, we do not have a blockchain to deploy our contract to\
+Smart contracts exist on the blockchain, but as of yet, we do not have a blockchain to deploy our contract to\
 Therfore, for this next part we are going to _spin-up_ a local (_local to your own machine_) blockchain to deploy our contracts on\
 Fortunately for us Hardhat provides simple functionality that allows us to do this\
-In the terminal window we can run:
+
+Open a new terminal window and connect to our AWS instance as before, then navigate to our `sc` directory\
+In this new terminal window, run:
 ```sc
 npx hardhat node
 ```
 Hardhat should output a list of 20 accounts, each with their account number, 10,000 ETH and their corresponding private key
 > **Note:** these are defualt values, do not use these accounts and their private keys for anything other than this demonstration
+
+We could deploy our contracts on this local blockchain provided by Hardhat, however, this is more of an environment for testing and is not publicly reachable. Moreover, when we quit the blockchain process, all state is lost, meaning the contract we have deployed and interacted with no longer exists, and will have to be created again.
 
 
 # Deploying to a public network 
