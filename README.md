@@ -17,42 +17,42 @@ Everything will be self contained, though the following guides will come in very
 
 Another good tool to create and test smart contracts is the Remix IDE: https://remix-project.org/ though we stress we **will not** be developing in remix for this tutorial
 
-# Setting up using AWS (Amazon Web Services)
+# Setting up an AWS (Amazon Web Services) EC2 instance
+This process should take around 20 minutes or so, but can be skipped if you want to run on your local computer.
+> Note: we advise you to use AWS EC2 instance for a cleaner setup: again we cannot provide support for issues encountered by using your local machine 
 
-This process should take around 20 minutes or so, and can be skipped if you want to run on your local computer.
+First sign up to a free-tier account here: https://aws.amazon.com/
+Then:
+- Select Services -> EC2 -> Launch an instance
+- Select an Ubuntu Server, with a 64-bit architecture
+- Leave the remaining settings as their defaults 
+- You can name the instance whatever you like, even _super-fun-smart-contracts-time_
 
-We can go to AWS here: https://aws.amazon.com/
+Under the section: For Key Pair (login), select Create New Key Pair:\
+Select ED25519 key pair type, and select the `.pem` file if you will connect via OpenSSH or alternatively select `.ppk` if you will connect using PuTTY
+**For MAC and Linux users**, it is reccomended to use the `.pem` type\
+**For Windows users**, PuTTY is a freely available easy to use tool, so a `.ppk` extension may be the better option
 
-Select: Services -> EC2 -> Launch an instance
-We will then select an Ubuntu Server, with a 64-bit architecture
-Most settings we can leave as default
+Name your key pair: `aws-sc-key` and click to launch our instance\
+Once launched, we can go to our instances page on AWS, there will be a Status Check and we can see it will be initialising\
+Once the initialisation process has completed we can connect
 
-For Key Pair (login)
-we can select Create New Key Pair:
-Select ED25519 key pair type, and select .pem if you will connect via OpenSSH or .ppk if you will connect using PuTTY
-For MAC and Linux users, it is reccomended to use the .pem type
-For Windows users, PuTTY is a freely available easy to use tool, so a .ppk extension may be the better option
+Before we connect to our instance, we reccomend to create a new directory / folder on our local machine to store our files from today in\
+Create that directory / folder now and call it `sc-deploy`, then relocate your `aws-sc-key` key to this location
 
-Call your key pair: aws-sc-key
 
-Now we can launch our instance
+Click on Connect to Instance, and select the `SSH client` tab and follow the instructions for your machine\
+**On MAC and Linux** you will need to open a terminal window within the directory `sc-deploy` and connect\
+**On Windows** you will need to run your version of PuTTY within folder `sc-deploy`
 
-After launching we can go to our instances page on AWS, there will be a Status Check and we can see it will be Initialisizing
-We can connect 
+The client will suggest you run something like: `ssh -i "aws-sc-key.pem" ubuntu@ec2-99-99-99-99.compute-1.amazonaws.com` in the terminal window, do this now\
+When we try to connect for the first time we will be asked to add the key fingerprint, type or select `yes / OK`
 
-Click on Connect to Instance, and then the tab SSH client and follow the instructions for your machine.
-On MAC and Linux you will need to open a terminal window
-On Windows you will need to run your version of PuTTY
-
-When we try to connect for the first time we will be asked to add the key fingerprint, type or select yes / OK
-
-We should now be connected to our personal AWS EC2 instance
-
+We should now be connected to our personal AWS EC2 instance, hurrah!
 
 # Setting up our environment
 
-The first thing we will do is make sure our instance is up to date.
-Run:
+The first thing we will do is make sure our instance is up to date, run:
 ```sh
 sudo apt-get update
 ```
@@ -60,12 +60,12 @@ Then
 ```sh
 sudo apt-get upgrade
 ```
-First we will install node.js using our package manager. 
+Next we will instaall `node.js` using our package manager
 
-> note: https://nodejs.org/en/download/package-manager/ detailed instructions on setting up node.js for your distribution can be found here. 
+> Note: https://nodejs.org/en/download/package-manager/ detailed instructions on setting up node.js for your distribution can be found here 
 > Please ensure you do not install a version greater than v16.x as it is not supported by Hardhat
 
-Since we are using an Ubuntu instance, we can follow the instructions given here: https://github.com/nodesource/distributions/blob/master/README.md
+Since we are using an Ubuntu instance, we can follow the instructions given here: https://github.com/nodesource/distributions/blob/master/README.md\
 First we run:
 ```sh
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
@@ -77,12 +77,10 @@ sudo apt-get install -y nodejs
 
 Now when we run
 ```sh
-$ node --version
-16.15.0
+node --version
 ```
-We should get v16.15.0
-
-We will now clone a git hub repository (repo)
+We should get `v16.15.0`\
+The next step is to clone the Github repository (repo) here
 
 # Cloning our repo using Git
 
@@ -93,8 +91,8 @@ git clone https://github.com/insqu/sc.git
 
 We should now have a directory called `sc`\
 Try the `ls` command and we should see the only directory is `sc`\
-We should now change directory so that we are working in `sc`
-```sc
+We should now change directory so that we are working in to `sc`
+```sh
 cd sc
 ```
 We can run the `ls` command now to see that the directory contains a `README.md` file and an `examples` directory
@@ -113,14 +111,14 @@ From now on we are going to do all our work in this `sc` directory
 
 ## Setting up Hardhat
 
-First we will initialise npm
+First we will initialise npm (npm is the default package manager for Node.js)
 ```sh
 $ npm init -y
 ```
 We should see an initialisation file\
 If we rerun the `ls` command, we should see that the directory contains the file `package.json`\
 
-We are going to the use Hardhat enviroment to build out smart contract\
+We are going to the use Hardhat enviroment to build our smart contract\
 In our terminal in the `sc` directory we can run:
 ```sh
 npm install --save-dev hardhat
@@ -142,19 +140,24 @@ You should see something like:
 Project created
 See the README.md file for some example tasks you can run
 ```
-You can read the `README.md` file in any way you like\ One suggestion is to use vim:
+You can read the `README.md` file in any way you like\ 
+One suggestion is to use vim:
 ```sh
 vim README.md
 ```
-For those unfamiliar with Vim (or Vi), it can be a little confusing at first\ You may want to look up Vim on a search engine to find commands, but for now it is sufficent to simply read the file _with your eyes_, and when you have absorbed it use `:q` to exit out of the vim environment
+For those unfamiliar with Vim (or Vi), it can be a little confusing at first\ 
+You may want to look up Vim on a search engine to find commands, but for now it is sufficent to simply read the file _with your eyes_, and when you have absorbed it enter `:q` to exit out of the vim environment
 
 It is a good opportunity to try the commands in the the `README.md` file, and take a look at the outputs you get 
 
 ## Task 1
-Run the command `npx hardhat test`\
-Then take a look in the test directory, what can we change in here? 
+Run `npx hardhat test`\
+Then take a look in the test directory, what can we change in here?\
+Take a look at, and run the rest of the commands in the `README.md` file. What outputs do you get?
+
 
 # Building our own contract
+We are now in a position to build our own contract
 Lets now run our list command `ls` to view the files in the directory
 We should now see directories, `.json` files `.js` files and `.md` files
 One of the directories will be called `contracts`
