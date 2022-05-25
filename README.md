@@ -116,7 +116,7 @@ From now on we are going to do all our work in this `sc` directory
 
 First we will initialise npm (npm is the default package manager for Node.js)
 ```sh
-$ npm init -y
+npm init -y
 ```
 We should see an initialisation file\
 If we rerun the `ls` command, we should see that the directory contains the file `package.json`\
@@ -171,7 +171,7 @@ cd contracts
 We are going to create `solidity` contracts within the `contracts` directory
 First we will create a file bbox.sol
 ```
-$ touch bbox.sol
+touch bbox.sol
 ```
 This directory should now contain two .`sol` files: `bbox.sol` and `Greeter.sol`
 
@@ -276,7 +276,7 @@ Make a note of our API KEY and our HTTP connection information\
 
 Now we will run the command
 ```sh
-$ npx mnemonics
+npx mnemonics
 ```
 You may be prompted to install a package first, if so accept the prompt and install\
 You will then be given 12 words which we will store in a secure file that we will call `sec.mnemonics`\
