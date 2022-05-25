@@ -148,7 +148,7 @@ vim README.md
 For those unfamiliar with Vim (or Vi), it can be a little confusing at first\ 
 You may want to look up Vim on a search engine to find commands, but for now it is sufficent to simply read the file _with your eyes_, and when you have absorbed it enter `:q` to exit out of the vim environment
 
-It is a good opportunity to try the commands in the the `README.md` file, and take a look at the outputs you get 
+It is a good opportunity to try the commands in the the `README.md` file, and take a look at the outputs you get. In fact, that is exactly what we are going to do now
 
 ## Task 1
 Run `npx hardhat test`\
