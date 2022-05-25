@@ -41,7 +41,7 @@ Before we connect to our instance, we reccomend to create a new directory / fold
 Create that directory / folder now and call it `sc-deploy`, then relocate your `aws-sc-key` key to this location\
 We will mlost likely need to ensure our key is not viewable, so we will run this command in the directory
 ```sh
-chmod 400 aws-sc-key-2.pem
+chmod 400 aws-sc-key.pem
 ```
 
 Click on Connect to Instance, and select the `SSH client` tab and follow the instructions for your machine\
