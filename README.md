@@ -38,8 +38,11 @@ Once launched, we can go to our instances page on AWS, there will be a Status Ch
 Once the initialisation process has completed we can connect
 
 Before we connect to our instance, we reccomend to create a new directory / folder on our local machine to store our files from today in\
-Create that directory / folder now and call it `sc-deploy`, then relocate your `aws-sc-key` key to this location
-
+Create that directory / folder now and call it `sc-deploy`, then relocate your `aws-sc-key` key to this location\
+We will mlost likely need to ensure our key is not viewable, so we will run this command in the directory
+```sh
+chmod 400 aws-sc-key-2.pem
+```
 
 Click on Connect to Instance, and select the `SSH client` tab and follow the instructions for your machine\
 **On MAC and Linux** you will need to open a terminal window within the directory `sc-deploy` and connect\
