@@ -21,8 +21,13 @@ Another good tool to create and test smart contracts is the Remix IDE: https://r
 This process should take around 20 minutes or so, but can be skipped if you want to run on your local computer.
 > Note: we advise you to use AWS EC2 instance for a cleaner setup: again we cannot provide support for issues encountered by using your local machine 
 
-First sign up to a free-tier account here: https://aws.amazon.com/
+First sign up to a free-tier account here: https://aws.amazon.com/ (note, you may have to use a credit / debit card to sign-up, please ensure that you cancel as soon as you have completed the tutorial and close your instances to avoid any charge)
+
+
 Then:
+
+## If you are using a MAC / MacOS / Linux follow these instructions
+
 - Select Services -> EC2 -> Launch an instance
 - Select an Ubuntu Server, with a 64-bit architecture
 - Leave the remaining settings as their defaults 
@@ -52,6 +57,40 @@ The client will suggest you run something like: `ssh -i "aws-sc-key.pem" ubuntu@
 When we try to connect for the first time we will be asked to add the key fingerprint, type or select `yes / OK`
 
 We should now be connected to our personal AWS EC2 instance, hurrah!
+
+## If you are using Windows follow these instructions 
+
+
+- Select Services -> EC2 -> Launch an instance
+- Select an Ubuntu Server, with a 64-bit architecture
+- Leave the remaining settings as their defaults 
+- You can name the instance whatever you like, even _super-fun-smart-contracts-time_
+
+Under the section: For Key Pair (login), select Create New Key Pair:\
+Select ED25519 key pair type, and select the `.pem` file if you will connect via OpenSSH or alternatively select `.ppk` if you will connect using PuTTY
+**For MAC and Linux users**, it is recommended to use the `.pem` type\
+**For Windows users**, PuTTY is a freely available easy to use tool, so a `.ppk` extension may be the better option
+
+Name your key pair: `aws-sc-key` and click to launch our instance\
+Once launched, we can go to our instances page on AWS, there will be a Status Check and we can see it will be initialising\
+Once the initialisation process has completed we can connect
+
+Before we connect to our instance, we recommend to create a new directory / folder on our local machine to store our files from today in\
+Create that directory / folder now and call it `sc-deploy`, then relocate your `aws-sc-key` key to this location\
+We will most likely need to ensure our key is not viewable, so we will run this command in the directory
+```sh
+chmod 400 aws-sc-key.pem
+```
+
+Click on Connect to Instance, and select the `SSH client` tab and follow the instructions for your machine\
+**On MAC and Linux** you will need to open a terminal window within the directory `sc-deploy` and connect\
+**On Windows** you will need to run your version of PuTTY within folder `sc-deploy`
+
+The client will suggest you run something like: `ssh -i "aws-sc-key.pem" ubuntu@ec2-99-99-99-99.compute-1.amazonaws.com` in the terminal window, do this now\
+When we try to connect for the first time we will be asked to add the key fingerprint, type or select `yes / OK`
+
+We should now be connected to our personal AWS EC2 instance, hurrah!
+
 
 # Setting up our environment
 
