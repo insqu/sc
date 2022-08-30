@@ -29,14 +29,15 @@ Then:
 ## If you are using a MAC / MacOS / Linux follow these instructions
 
 - Select Services -> EC2 -> Launch an instance
-- Select an Ubuntu Server, with a 64-bit architecture
-- Leave the remaining settings as their defaults 
+- Select an Ubuntu Server
+- Under Architecture ensure 64-bit is selected
+- Leave the remaining settings defaults 
 - You can name the instance whatever you like, even _super-fun-smart-contracts-time_
 
 Under the section: For Key Pair (login), select Create New Key Pair:\
 Select ED25519 key pair type, and select the `.pem` file if you will connect via OpenSSH or alternatively select `.ppk` if you will connect using PuTTY
-**For MAC and Linux users**, it is recommended to use the `.pem` type\
-**For Windows users**, PuTTY is a freely available easy to use tool, so a `.ppk` extension may be the better option
+**For MAC and Linux users**, it is recommended to use OpenSSH and the `.pem` file type\
+
 
 Name your key pair: `aws-sc-key` and click to launch our instance\
 Once launched, we can go to our instances page on AWS, there will be a Status Check and we can see it will be initialising\
@@ -60,22 +61,24 @@ We should now be connected to our personal AWS EC2 instance, hurrah!
 
 ## If you are using Windows follow these instructions 
 
-
 - Select Services -> EC2 -> Launch an instance
-- Select an Ubuntu Server, with a 64-bit architecture
-- Leave the remaining settings as their defaults 
+- Select an Ubuntu Server
+- Under Architecture ensure 64-bit is selected
+- Leave the remaining settings defaults 
 - You can name the instance whatever you like, even _super-fun-smart-contracts-time_
 
 Under the section: For Key Pair (login), select Create New Key Pair:\
-Select ED25519 key pair type, and select the `.pem` file if you will connect via OpenSSH or alternatively select `.ppk` if you will connect using PuTTY
-**For MAC and Linux users**, it is recommended to use the `.pem` type\
-**For Windows users**, PuTTY is a freely available easy to use tool, so a `.ppk` extension may be the better option
+Select ED25519 key pair type, and select the `.ppk` private key file format as we will be connecting using PuTTY
+**For Windows users**, PuTTY is a freely available, easy to use, tool which can be aquired here: https://www.chiark.greenend.org.uk/~sgtatham/putty/
+
+### First download and install PuTTY
+Putty can be found on the link above, and is also available via the microsoft web store for free
 
 Name your key pair: `aws-sc-key` and click to launch our instance\
 Once launched, we can go to our instances page on AWS, there will be a Status Check and we can see it will be initialising\
-Once the initialisation process has completed we can connect
+Once the initialisation process has completed we can click connect
 
-Before we connect to our instance, we recommend to create a new directory / folder on our local machine to store our files from today in\
+Before connecting to our instance, we recommend to create a new directory / folder on our local machine to store our files from today in\
 Create that directory / folder now and call it `sc-deploy`, then relocate your `aws-sc-key` key to this location\
 We will most likely need to ensure our key is not viewable, so we will run this command in the directory
 ```sh
@@ -83,11 +86,17 @@ chmod 400 aws-sc-key.pem
 ```
 
 Click on Connect to Instance, and select the `SSH client` tab and follow the instructions for your machine\
-**On MAC and Linux** you will need to open a terminal window within the directory `sc-deploy` and connect\
-**On Windows** you will need to run your version of PuTTY within folder `sc-deploy`
+On Windows you will need to run your version of PuTTY within folder we have just created called `sc-deploy`
 
-The client will suggest you run something like: `ssh -i "aws-sc-key.pem" ubuntu@ec2-99-99-99-99.compute-1.amazonaws.com` in the terminal window, do this now\
-When we try to connect for the first time we will be asked to add the key fingerprint, type or select `yes / OK`
+The client will suggest you connect to your instance using its public DNS (Domain Name System),  something like: `ec2-99-99-99-99.compute-1.amazonaws.com`\
+Copy the Public DNS, we are going to use it with PuTTY to connect to our server\
+Now open PuTTY, and where you see a blank section called Host Name (or IP address) paste in the DNS we copied above, then prepend `ubuntu@` in front on the DNS name so that under host name we get something that looks like: `ubuntu@ec2-99-99-99-99.compute-1.amazonaws.com`\
+In the white box below, called Saved Sessions, we can write `sc_tutorial` then click save on the right\
+Now on the drop down column on the left, under Connection, select SSH to expand it then select Auth (for authentication), then under the Private key file for authentication section select Browse and select your private key `aws-sc-key.ppk`\
+Now select Session in the left hand drop down column, and press save\
+Press open to be connected to the AWS server we have set up\
+
+When we try to connect for the first time we will be asked to add the key fingerprint, type or select `yes / OK / agree`
 
 We should now be connected to our personal AWS EC2 instance, hurrah!
 
