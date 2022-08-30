@@ -121,7 +121,7 @@ npm init -y
 We should see an initialisation file\
 If we rerun the `ls` command, we should see that the directory contains the file `package.json`\
 
-We are going to the use Hardhat enviroment to build our smart contract\
+We are going to the use Hardhat environment to build our smart contract\
 In our terminal in the `sc` directory we can run:
 ```sh
 npm install --save-dev hardhat
@@ -151,7 +151,7 @@ One suggestion is to use vim:
 vim README.md
 ```
 For those unfamiliar with Vim (or Vi), it can be a little confusing at first\ 
-You may want to look up Vim on a search engine to find commands, but for now it is sufficent to simply read the file _with your eyes_, and when you have absorbed it enter `:q` to exit out of the vim environment
+You may want to look up Vim on a search engine to find commands, but for now it is sufficient to simply read the file _with your eyes_, and when you have absorbed it enter `:q` to exit out of the vim environment
 
 It is a good opportunity to try the commands in the the `README.md` file, and take a look at the outputs you get. In fact, that is exactly what we are going to do now
 
@@ -252,7 +252,7 @@ In this new terminal window, run:
 npx hardhat node
 ```
 Hardhat should output a list of 20 accounts, each with their account number, 10,000 ETH and their corresponding private key
-> **Note: these are defualt values, do not use these accounts and their private keys for anything other than this demonstration**
+> **Note: these are default values, do not use these accounts and their private keys for anything other than this demonstration**
 We will leave this terminal window open for now, as it is running a simulated Hardhat blockchain for our development purposes
 
 Now lets deploy our Hardhat created `Greeter.sol` contract onto this chain for fun!\
@@ -261,7 +261,7 @@ In our other terminal window (not the one running the hardhat node), we can run
 npx hardhat test --network localhost
 ```
 This tells hardhat to run the scripts located in the `test` directory, to the network specified as `localhost` (i.e. your machine)\
-After running this succesfully, we should get a return something like: 
+After running this successfully, we should get a return something like: 
 ```sh
 Greeter
 Should return the new greeting once it's changed 
@@ -382,7 +382,7 @@ We can then check the balance of any of our accounts with the command
 (await ethers.provider.getBalance(accounts[0])).toString()
 ```
 
-One final thing before we can delpoy our contract: we need some ether in our Rinkeby test network
+One final thing before we can deploy our contract: we need some ether in our Rinkeby test network
 
 ## Getting some Rinkeby eth
 The best way to do this is to simply search for a _Rinkeby faucet_ using a web browser, and provide the faucet with one of the account numbers in the list you returned when you ran `accounts = await ethers.provider.listAccounts()`\
@@ -394,10 +394,10 @@ Now we are ready to deploy our contract on the Rinkeby test network. We can run:
 npx hardhat test --network rinkeby
 ```
 > note: we may have to wait while a block is created
-Once this is complete, we can retrun to our Alchemy tab in our browser and look up the contract that was created\
+Once this is complete, we can return to our Alchemy tab in our browser and look up the contract that was created\
 If we take a look at the trace in Etherscan we can find the contract we created and decode the raw data using their inbuilt functions, here is an example: https://rinkeby.etherscan.io/tx/0xa703de1f2770a08be1d24e95bb35acf88ce8840e0b8d2e04aa3f82399136f62c
 
-That's it, we did it! We have succesfull created a smart contract and deployed it on an Ethereum network!
+That's it, we did it! We have successfully created a smart contract and deployed it on an Ethereum network!
 
 ## Task 3
 Using the guide from here: https://docs.openzeppelin.com/learn/developing-smart-contracts complete the bbox.sol setup and deploy it locally to the Rinkeby test network\
