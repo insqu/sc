@@ -1,17 +1,17 @@
 # Deploying Smart Contracts on the Ethereum network
 
 ## Introduction
-This `README` document is intended to give you the basic of developing and deploying a smart contract to an Ethereum network\
+This repo is intended to give you the basic of developing and deploying a smart contract to an Ethereum network\
 The focus is to learn some of the tools you can use to create and deploy smart contracts on the public Ethereum Rinkeby test network\
-The document can be followed as is, and is slef-contained, but there are plenty of jumping off points for developing your own knowledge
+The document can be followed as is, and is self--contained, but there are plenty of points where you can diverge from this tutorial to develop your own knowledge
 
 ## Who is this guide for
-This guide has been designed with masters level students in mind, specifically those studying at Exeter University\
-An assumption has been made of little coding / scripting experience, though students are expected to be able to learn these conepts quickly\
-This can be completed at home and in your own time, though unfortunately the authors of this document are unable to provide any support over email
+This guide has been designed with Exeter University masters level students in mind\
+An assumption has been made of little coding / scripting experience, though students are expected to be able to learn these concepts quickly\
+This is designed to be completed in a tutorial and in your own time. Please try to complete the tasks that appear throughout
 
 ## Setup
-We will start by setting up a development enviroment for our contracts on an AWS EC2 instance, and using Solidity to create our smart contract. We will be using tools and services such as _Node.js, Hardhat, OpenZeppelin, Alchemy_
+We will start by setting up a development environment for our contracts on an AWS EC2 instance, and using Solidity to create our smart contract. We will be using tools and services such as _Node.js, Hardhat, OpenZeppelin, Alchemy_
 
 Everything will be self contained, though the following guides will come in very handy: https://hardhat.org/getting-started/ and https://docs.openzeppelin.com/learn/deploying-and-interacting
 
@@ -30,16 +30,16 @@ Then:
 
 Under the section: For Key Pair (login), select Create New Key Pair:\
 Select ED25519 key pair type, and select the `.pem` file if you will connect via OpenSSH or alternatively select `.ppk` if you will connect using PuTTY
-**For MAC and Linux users**, it is reccomended to use the `.pem` type\
+**For MAC and Linux users**, it is recommended to use the `.pem` type\
 **For Windows users**, PuTTY is a freely available easy to use tool, so a `.ppk` extension may be the better option
 
 Name your key pair: `aws-sc-key` and click to launch our instance\
 Once launched, we can go to our instances page on AWS, there will be a Status Check and we can see it will be initialising\
 Once the initialisation process has completed we can connect
 
-Before we connect to our instance, we reccomend to create a new directory / folder on our local machine to store our files from today in\
+Before we connect to our instance, we recommend to create a new directory / folder on our local machine to store our files from today in\
 Create that directory / folder now and call it `sc-deploy`, then relocate your `aws-sc-key` key to this location\
-We will mlost likely need to ensure our key is not viewable, so we will run this command in the directory
+We will most likely need to ensure our key is not viewable, so we will run this command in the directory
 ```sh
 chmod 400 aws-sc-key.pem
 ```
@@ -63,7 +63,7 @@ Then
 ```sh
 sudo apt-get upgrade
 ```
-Next we will instaall `node.js` using our package manager
+Next we will install `node.js` using our package manager
 
 > Note: https://nodejs.org/en/download/package-manager/ detailed instructions on setting up node.js for your distribution can be found here 
 > Please ensure you do not install a version greater than v16.x as it is not supported by Hardhat
