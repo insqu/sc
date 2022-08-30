@@ -407,6 +407,9 @@ Using the guide from here: https://docs.openzeppelin.com/learn/developing-smart-
 ## Task 4
 Now the interesting bit, take a look at the OpenZeppelin documents here: https://docs.openzeppelin.com/contracts/4.x/erc20
 and create a more interesting contract.\
-Your contract will be an ERC20 conract, issuing a token.\
-Create and deploy a new token to the Rinkeby network with a cool name, then distribute that token to your colleagues!
+Your contract type will be an ERC20 contract, issuing a token.\
+Create and deploy a new token to the Rinkeby network with an interesting name, then distribute that token to your colleagues!
+- What is the name of your token? 
+- What addresses did you send the token to? 
+- and how was it achieved? 
 
