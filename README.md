@@ -79,10 +79,6 @@ Once the initialisation process has completed we can click connect
 
 Before connecting to our instance, we recommend to create a new directory / folder on our local machine to store our files from today in\
 Create that directory / folder now and call it `sc-deploy`, then relocate your `aws-sc-key` key to this location\
-We will most likely need to ensure our key is not viewable, so we will run this command in the directory
-```sh
-chmod 400 aws-sc-key.pem
-```
 
 Click on Connect to Instance, and select the `SSH client` tab and follow the instructions for your machine\
 On Windows you will need to run your version of PuTTY within folder we have just created called `sc-deploy`
