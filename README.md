@@ -8,7 +8,7 @@ The document can be followed as is, and is self--contained, but there are plenty
 ## Who is this guide for
 This guide has been designed with Exeter University masters level students in mind\
 An assumption has been made of little coding / scripting experience, though students are expected to be able to learn these concepts quickly\
-This is designed to be completed in a tutorial and in your own time. Please try to complete the tasks that appear throughout
+This is designed to be completed in a tutorial and in your own time. Please try to complete the tasks and questions that appear throughout
 
 ## Setup
 We will start by setting up a development environment for our contracts on an AWS EC2 instance, and using Solidity to create our smart contract. We will be using tools and services such as _Node.js, Hardhat, OpenZeppelin, Alchemy_
@@ -52,7 +52,6 @@ chmod 400 aws-sc-key.pem
 
 Click on Connect to Instance, and select the `SSH client` tab and follow the instructions for your machine\
 **On MAC and Linux** you will need to open a terminal window within the directory `sc-deploy` and connect\
-**On Windows** you will need to run your version of PuTTY within folder `sc-deploy`
 
 The client will suggest you run something like: `ssh -i "aws-sc-key.pem" ubuntu@ec2-99-99-99-99.compute-1.amazonaws.com` in the terminal window, do this now\
 When we try to connect for the first time we will be asked to add the key fingerprint, type or select `yes / OK`
@@ -99,6 +98,10 @@ Press open to be connected to the AWS server we have set up\
 When we try to connect for the first time we will be asked to add the key fingerprint, type or select `yes / OK / agree`
 
 We should now be connected to our personal AWS EC2 instance, hurrah!
+
+
+## Question 1 
+Why are we using an AWS instance? What is the advantage of renting server space in this way? What is the advantage to a developer in using tools such as this?
 
 
 # Setting up our environment
@@ -322,6 +325,10 @@ Fantastic, we have actually deployed a real life EVM contract (even if it isn't 
 ## Task 2
 Take a look at the `Greeter.sol` contract an in the `contracts` directory, and take a look at the scripts used to deploy it in the `test/sample-test.js` file\
 Try to understand how the script interacts with the code. What could you change in the scripts or the contracts code to make the contract perform differently? Change the contract script so that instead of changing to _Hola, mundo!_, it says: _Nobody expects the Spanish Inquisition!_
+
+## Question 2
+What does Greeter.sol do what does bbox.sol do? Take a look at the code, and try to work out what would happen if certain commands are called. 
+> Hint: remix ide https://remix-project.org/ allows you to create and intereact with contracts, inclusing useful titorials and ways to deploy them
 
 We could now create and deploy our contracts on this local blockchain provided by Hardhat, however, this is more of an environment for testing and is not publicly reachable. Moreover, when we quit the hardhat node process, all state is lost, meaning the contract we have deployed and interacted with no longer exists, and will have to be created again. Try it if you like!
 
