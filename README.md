@@ -13,7 +13,7 @@ This is designed to be completed in a tutorial and in your own time. Please try 
 ## Setup
 We will start by setting up a development environment for our contracts on an AWS EC2 instance, and using Solidity to create our smart contract. We will be using tools and services such as _Node.js, Hardhat, OpenZeppelin, Alchemy_
 
-Everything will be self contained, though the following guides will come in very handy: https://hardhat.org/getting-started/ and https://docs.openzeppelin.com/learn/deploying-and-interacting
+Everything here is self contained, though the following guides (where a lot of this guide is derived from) will come in very handy: https://hardhat.org/getting-started/ and https://docs.openzeppelin.com/learn/deploying-and-interacting
 
 Another good tool to create and test smart contracts is the Remix IDE: https://remix-project.org/ though we stress we **will not** be developing in remix for this tutorial
 
