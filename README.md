@@ -6,7 +6,9 @@ The focus is to learn some of the tools you can use to create and deploy smart c
 The document can be followed as is, and is self--contained, but there are plenty of points where you can diverge from this tutorial to develop your own knowledge
 
 ## Who is this guide for
-This guide has been designed with Exeter University masters level students in mind\
+This guide has been designed with Exeter University masters level students in mind.
+
+Part of this guide is used for the tutorial section of the module titled Smart Contracts, with code: BEEM161.
 An assumption has been made of little coding / scripting experience, though students are expected to be able to learn these concepts quickly\
 This is designed to be completed in a tutorial and in your own time. Please try to complete the tasks and questions that appear throughout
 
