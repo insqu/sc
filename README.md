@@ -6,11 +6,13 @@ The focus is to learn some of the tools you can use to create and deploy smart c
 The document can be followed as is, and is self--contained, but there are plenty of points where you can diverge from this tutorial to develop your own knowledge
 
 ## Who is this guide for
-This guide has been designed with Exeter University masters level students in mind.
+This guide has been designed with Exeter University masters level students in mind, however it will be useful to anyone looking to deploy a smart contract on a working network.
 
 Part of this guide is used for the tutorial section of the module titled Smart Contracts, with code: BEEM161.
-An assumption has been made of little coding / scripting experience, though students are expected to be able to learn these concepts quickly\
-This is designed to be completed in a tutorial and in your own time. Please try to complete the tasks and questions that appear throughout
+An assumption has been made of little coding / scripting experience, though students are expected to be able to learn these concepts quickly.
+This is designed to be completed in a tutorial and in your own time. 
+
+Try to complete the tasks and questions that appear throughout
 
 ## Setup
 We will start by setting up a development environment for our contracts on an AWS EC2 instance, and using Solidity to create our smart contract. We will be using tools and services such as _Node.js, Hardhat, OpenZeppelin, Alchemy_
