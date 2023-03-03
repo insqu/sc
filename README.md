@@ -3,7 +3,7 @@
 ## Introduction
 This repo is intended to give you the basic of developing and deploying a smart contract to an Ethereum network.
 
-The focus is to learn some of the tools you can use to create and deploy smart contracts on the public Ethereum Rinkeby test network.  
+The focus is to learn some of the tools you can use to create and deploy smart contracts on the public Ethereum Goerli test network.  
 
 The document can be followed as is, and is self--contained, but there are plenty of points where you can diverge from this tutorial to develop your own knowledge.
 
@@ -374,12 +374,12 @@ First head over to Alchemy and create a free account\
 For those who want to know what alchemy is and why we might use it, the alchemy website has a page devoted to this: https://docs.alchemy.com/alchemy/introduction/why-use-alchemy\
 > Note: we could use another service, such as Infura, but for our experiment Alchemy will suffice
 
-### Setting up a Rinkeby test network account 
+### Setting up a Goerli test network account 
 
-We are going to deploy on the Rinkeby test network, as this way we wont risk losing actually valuable ether\
+We are going to deploy on the Goerli test network, as this way we wont risk losing actually valuable ether\
 When we setup our alchemy app ensure we select `name:  exeter.sc`,  `chain: Ethereum` and `network: Rinkeby`\
-After setup on the main dashboard we should see our Rinkeby network and a column called `API KEY`\
-Make a note of your API KEY and our HTTP connection information\
+After setup on the main dashboard we should see our Goerli network and a column called `API KEY`.
+Make a note of your API KEY and our HTTP connection information.
 
 Now we will run the command
 ```sh
@@ -408,7 +408,7 @@ and under module exports:
   module.exports = {
     networks: {
      rinkeby: {
-         url: `https://eth-rinkeby.alchemyapi.io/v2/{YOUR_API_KEY}`,
+         url: `https://eth-goerli.alchemyapi.io/v2/{YOUR_API_KEY}`,
         accounts: { mnemonic: mnemonic },
         },
        },
@@ -437,10 +437,10 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
-  solidity: "0.8.4",
+  solidity: "0.7.4",
         networks: {
-                rinkeby: {
-                url: `https://eth-rinkeby.alchemyapi.io/v2/{YOUR_API_KEY}`,
+                goerli: {
+                url: `https://eth-goerli.alchemyapi.io/v2/{YOUR_API_KEY}`,
                 accounts: { mnemonic: mnemonic },
      },
    },
@@ -448,9 +448,9 @@ module.exports = {
 ```
 > note: you must replace `{YOUR_API_KEY}` with your _alchemy API_KEY_ 
 
-Now we are ready to interact with the public Rinkeby test network using Hardhat
+Now we are ready to interact with the public Goerli test network using Hardhat
 
-## The Hardhat Rinkeby console
+## The Hardhat Goerli console
 We in the `sc` directory we can run:
 ```sh 
 npx hardhat console --network rinkeby
@@ -465,16 +465,16 @@ We can then check the balance of any of our accounts with the command
 (await ethers.provider.getBalance(accounts[0])).toString()
 ```
 
-One final thing before we can deploy our contract: we need some ether in our Rinkeby test network
+One final thing before we can deploy our contract: we need some ether in our Goerli test network
 
-## Getting some Rinkeby eth
-The best way to do this is to simply search for a _Rinkeby faucet_ using a web browser, and provide the faucet with one of the account numbers in the list you returned when you ran `accounts = await ethers.provider.listAccounts()`\
+## Getting some Goerli eth
+The best way to do this is to simply search for a _goerli faucet_ using a web browser, and provide the faucet with one of the account numbers in the list you returned when you ran `accounts = await ethers.provider.listAccounts()`\
 It is simplest to use the first account number returned, so we will do that. Once you have received some test network eth, you should be able to run `(await ethers.provider.getBalance(accounts[0])).toString()` and see a positive number! 
 
-## Deploying our contract on the Rinkeby network
-Now we are ready to deploy our contract on the Rinkeby test network. We can run: 
+## Deploying our contract on the Goerli network
+Now we are ready to deploy our contract on the Goerli test network. We can run: 
 ```
-npx hardhat test --network rinkeby
+npx hardhat test --network goerli
 ```
 > note: we may have to wait while a block is created
 Once this is complete, we can return to our Alchemy tab in our browser and look up the contract that was created\
@@ -483,7 +483,7 @@ If we take a look at the trace in Etherscan we can find the contract we created 
 That's it, we did it! We have successfully created a smart contract and deployed it on an Ethereum network!
 
 ## Task 3
-Using the guide from here: https://docs.openzeppelin.com/learn/developing-smart-contracts complete the bbox.sol setup and deploy it locally to the Rinkeby test network\
+Using the guide from here: https://docs.openzeppelin.com/learn/developing-smart-contracts complete the bbox.sol setup and deploy it locally to the Goerli test network\
 > note: in the guide, they use Box.sol, not bbox.sol, so watch out for that
 
 
@@ -491,7 +491,7 @@ Using the guide from here: https://docs.openzeppelin.com/learn/developing-smart-
 Now the interesting bit, take a look at the OpenZeppelin documents here: https://docs.openzeppelin.com/contracts/4.x/erc20
 and create a more interesting contract.\
 Your contract type will be an ERC20 contract, issuing a token.\
-Create and deploy a new token to the Rinkeby network with an interesting name, then distribute that token to your colleagues!
+Create and deploy a new token to the Goerli network with an interesting name, then distribute that token to your colleagues!
 - What is the name of your token? 
 - What addresses did you send the token to? 
 - and how was it achieved? 
