@@ -177,7 +177,13 @@ If we rerun the `ls` command, we should see that the directory contains the file
 We are going to the use Hardhat environment to build our smart contract\
 In our terminal in the `sc` directory we can run:
 ```sh
-npm install --save-dev hardhat
+\\ npm install --save-dev hardhat
+npm install --save-dev hardhat@2.0.11
+```
+
+then 
+```sh
+ npm install -D @nomiclabs/hardhat-waffle ethereum-waffle
 ```
 Wait for Hardhat to install, then run
 ```sh
@@ -213,8 +219,9 @@ You may want to look up Vim on a search engine to find commands, but for now it 
 It is a good opportunity to try the commands in the the `README.md` file, and take a look at the outputs you get. In fact, that is exactly what we are going to do now
 
 ## Task 1
-Run `npx hardhat test`\
-Then take a look in the test directory, what can we change in here?\
+Run `npx hardhat test`
+
+Then take a look in the test directory, what can we change in here?
 Take a look at, and run the rest of the commands in the `README.md` file. What outputs do you get?
 
 
