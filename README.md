@@ -377,7 +377,7 @@ For those who want to know what alchemy is and why we might use it, the alchemy 
 ### Setting up a Goerli test network account 
 
 We are going to deploy on the Goerli test network, as this way we wont risk losing actually valuable ether\
-When we setup our alchemy app ensure we select `name:  exeter.sc`,  `chain: Ethereum` and `network: Rinkeby`\
+When we setup our alchemy app ensure we select `name:  exeter.sc`,  `chain: Ethereum` and `network: Goerli`\
 After setup on the main dashboard we should see our Goerli network and a column called `API KEY`.
 Make a note of your API KEY and our HTTP connection information.
 
