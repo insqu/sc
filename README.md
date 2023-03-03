@@ -1,9 +1,11 @@
 # Deploying Smart Contracts on the Ethereum network
 
 ## Introduction
-This repo is intended to give you the basic of developing and deploying a smart contract to an Ethereum network\
-The focus is to learn some of the tools you can use to create and deploy smart contracts on the public Ethereum Rinkeby test network\
-The document can be followed as is, and is self--contained, but there are plenty of points where you can diverge from this tutorial to develop your own knowledge
+This repo is intended to give you the basic of developing and deploying a smart contract to an Ethereum network.
+
+The focus is to learn some of the tools you can use to create and deploy smart contracts on the public Ethereum Rinkeby test network.  
+
+The document can be followed as is, and is self--contained, but there are plenty of points where you can diverge from this tutorial to develop your own knowledge.
 
 ## Who is this guide for
 This guide has been designed with Exeter University masters level students in mind, however it will be useful to anyone looking to deploy a smart contract on a working network.
