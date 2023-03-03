@@ -14,47 +14,54 @@ Part of this guide is used for the tutorial section of the module titled Smart C
 An assumption has been made of little coding / scripting experience, though students are expected to be able to learn these concepts quickly.
 This is designed to be completed in a tutorial and in your own time. 
 
-Try to complete the tasks and questions that appear throughout
+Try to complete the tasks and questions that appear throughout.
 
 ## Setup
-We will start by setting up a development environment for our contracts on an AWS EC2 instance, and using Solidity to create our smart contract. We will be using tools and services such as _Node.js, Hardhat, OpenZeppelin, Alchemy_
+We will start by setting up a development environment for our contracts on an AWS EC2 instance, and using Solidity to create our smart contract. We will be using tools and services such as _Node.js, Hardhat, OpenZeppelin, Alchemy_.
 
 Everything here is self contained, though the following guides (where a lot of this guide is derived from) will come in very handy: https://hardhat.org/getting-started/ and https://docs.openzeppelin.com/learn/deploying-and-interacting
 
-Another good tool to create and test smart contracts is the Remix IDE: https://remix-project.org/ though we stress we **will not** be developing in remix for this tutorial
+Another good tool to create and test smart contracts is the Remix IDE: https://remix-project.org/ though we stress we **will not** be developing in remix for this tutorial.
 
 # Setting up an AWS (Amazon Web Services) EC2 instance
 This process should take around 20 minutes or so, but can be skipped if you want to run on your local computer.
-> Note: we advise you to use AWS EC2 instance for a cleaner setup: again we cannot provide support for issues encountered by using your local machine 
+> Note: we advise you to use AWS EC2 instance for a cleaner setup: again we cannot provide support for issues encountered by using your local machine. 
+> Please remember to terminate any running instances after completeing this tutorial. 
 
-First sign up to a free-tier account here: https://aws.amazon.com/ (note, you may have to use a credit / debit card to sign-up, please ensure that you cancel as soon as you have completed the tutorial and close your instances to avoid any charge)
+First sign up to a free-tier account here: https://aws.amazon.com/ (note, you may have to use a credit / debit card to sign-up, please ensure that you cancel as soon as you have completed the tutorial and close your instances to avoid any charges).
 
 
 Then:
 
-## If you are using a MAC / MacOS / Linux follow these instructions
+## If you are using a Windows / MacOS / Linux follow these instructions
 
 - Select Services -> EC2 -> Launch an instance
 - Select an Ubuntu Server
 - Under Architecture ensure 64-bit is selected
-- Leave the remaining settings defaults 
+- Leave the remaining settings as their defaults 
 - You can name the instance whatever you like, even _super-fun-smart-contracts-time_
 
-Under the section: For Key Pair (login), select Create New Key Pair:\
-Select ED25519 key pair type, and select the `.ppk` file type
-**For MAC and Linux users**, it is recommended to use OpenSSH and the `.pem` file type\
+Under the section: For Key Pair (login), select Create New Key Pair:
+Select `ED25519` key pair type, and select the `.ppk` file type
+**For MAC and Linux users**, it is recommended to use OpenSSH and the `.pem` file type. 
 
 
-Name your key pair: `aws-sc-key` and click to launch our instance\
-Once launched, we can go to our instances page on AWS, there will be a Status Check and we can see it will be initialising\
-Once the initialisation process has completed we can connect
+Name your key pair: `aws-sc-key` and click to launch our instance.
+Once launched, we can go to our instances page on AWS, there will be a Status Check and we can see it will be initialising.
+Once the initialisation process has completed we can click `connect`.
 
-Before we connect to our instance, we recommend to create a new directory / folder on our local machine to store our files from today in\
-Create that directory / folder now and call it `sc-deploy`, then relocate your `aws-sc-key` key to this location\
-We will most likely need to ensure our key is not viewable, so we will run this command in the directory
+Before we connect to our instance, we recommend to create a new directory / folder on our local machine to store our files in.
+Create that directory / folder now and call it `sc-deploy`, then relocate your `aws-sc-key` key to this location.
+
+### For MAC users
+
+If we are uisng MacOS, we will most likely need to ensure our key is not viewable, so we will run this command in the directory
 ```sh
 chmod 400 aws-sc-key.pem
 ```
+
+
+
 
 Click on Connect to Instance, and select the `SSH client` tab and follow the instructions for your machine\
 **On MAC and Linux** you will need to open a terminal window within the directory `sc-deploy` and connect\
