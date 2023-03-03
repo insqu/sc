@@ -143,8 +143,8 @@ Now when we run
 ```sh
 node --version
 ```
-We should get `v16.15.0`\
-The next step is to clone the Github repository (repo) here
+We should get `v16.XX.X`, for some value of X, just ensure that it starts with `v16`. 
+The next step is to clone the Github repository (repo).
 
 # Cloning our repo using Git
 
@@ -167,7 +167,7 @@ We can remove the `README.md` file:
 ```sh
 rm README.md
 ```
-For now this is all we will do with git\
+For now this is all we will do with git.
 From now on we are going to do all our work in this `sc` directory
 
 
@@ -182,17 +182,14 @@ npm init -y
 We should see an initialisation file\
 If we rerun the `ls` command, we should see that the directory contains the file `package.json`\
 
-We are going to the use Hardhat environment to build our smart contract\
+We are going to the use Hardhat environment to build our smart contract. We are going to use a slightly older version of hardhat, version 2.0.11.
+
+
 In our terminal in the `sc` directory we can run:
 ```sh
-\\ npm install --save-dev hardhat
 npm install --save-dev hardhat@2.0.11
 ```
 
-then 
-```sh
- npm install -D @nomiclabs/hardhat-waffle ethereum-waffle
-```
 Wait for Hardhat to install, then run
 ```sh
 npx hardhat
@@ -201,9 +198,9 @@ You will be prompted with questions
 Select the following responses in order 
 - select the first option
 - select to accept the suggested project root
-- select n
-- select n
-- select y 
+- select n to the gitignore message
+- select n to the feedback message
+- select y to the depencies message
 
 
 The final selection of yes will install dependencies required to run the pre-built Hardhat contract `Greeter.sol`, which we will look at later
