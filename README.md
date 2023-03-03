@@ -291,7 +291,7 @@ We can now open the file `hardhat.config.js` using vim
 ```sc
 vim hardhat.config.js
 ```
-We should be able to see a line that specifies the solidity version `solidity: "0.8.4"`\
+We should be able to see a line that specifies the solidity version `solidity: "0.8.4"`, if we don't, we can change it to 0.8.4 using the insert command `i` as we did above, and writing to the file using `esc` then `:w`.
 Close vim using the command `:q!`\
 We are now ready to compile our contract\
 From the `sc` directory run:
@@ -320,18 +320,20 @@ Hardhat should output a list of 20 accounts, each with their account number, 10,
 > **Note: these are default values, do not use these accounts and their private keys for anything other than this demonstration**
 We will leave this terminal window open for now, as it is running a simulated Hardhat blockchain for our development purposes
 
-Now lets deploy our Hardhat created `Greeter.sol` contract onto this chain for fun!\
+Now lets deploy our Hardhat created `Greeter.sol` contract onto this chain for fun!
 In our other terminal window (not the one running the hardhat node), we can run
 ```sh
 npx hardhat test --network localhost
 ```
-This tells hardhat to run the scripts located in the `test` directory, to the network specified as `localhost` (i.e. your machine)\
+This tells hardhat to run the scripts located in the `test` directory, to the network specified as `localhost` (i.e. your machine)
+
 After running this successfully, we should get a return something like: 
 ```sc
 Greeter
 Should return the new greeting once it's changed 
 ```
-This is pretty boring, but if we take a look in our other terminal window, we should have seen some interesting stuff happening!\
+This is pretty boring, but if we take a look in our other terminal window, we should have seen some interesting stuff happening!
+
 We should be able to see that two blocks have been created and that in the first block a contract called Greeter has been deployed with the greeting _Hello, World!_, and that in the second block a block the set greeting function has been called that changes _Hello, world!_ to _Hola, mundo!_. We should also see the contract address that has been created and the transaction addresses.
 
 Fantastic, we have actually deployed a real life EVM contract (even if it isn't on a public chain, and it is a very simple contract)
