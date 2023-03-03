@@ -194,19 +194,21 @@ Select the following responses in order
 
 The final selection of yes will install dependencies required to run the pre-built Hardhat contract `Greeter.sol`, which we will look at later
 
-Wait for the setup to complete\
+Wait for the setup to complete.
+
 You should see something like:
 ```
 Project created
 See the README.md file for some example tasks you can run
 ```
-You can read the `README.md` file in any way you like\ 
-One suggestion is to use vim:
+You can read the `README.md` file in any way you like, one suggestion is to use vim:
 ```sh
 vim README.md
 ```
-For those unfamiliar with Vim (or Vi), it can be a little confusing at first\ 
-You may want to look up Vim on a search engine to find commands, but for now it is sufficient to simply read the file _with your eyes_, and when you have absorbed it enter `:q` to exit out of the vim environment
+For those unfamiliar with Vim (or Vi), it can be a little confusing at first. 
+
+
+You may want to look up Vim on a search engine to find commands, but for now it is sufficient to simply read the file _with your eyes_, and when you have absorbed it enter `:q` to exit out of the vim environment. You may need to use `:q!` then `enter` to quit vim. Ask if you get stuck!
 
 It is a good opportunity to try the commands in the the `README.md` file, and take a look at the outputs you get. In fact, that is exactly what we are going to do now
 
@@ -230,14 +232,22 @@ First we will create a file bbox.sol
 ```sh
 touch bbox.sol
 ```
-This directory should now contain two `.sol` files: `bbox.sol` and `Greeter.sol`
+This directory should now contain two `.sol` files: `Lock.sol` and `bbox.sol`. 
+
+We are going to import our `Greeter.sol` contract from the Github directory that we copied earlier.
+Run the command
+
+```sh 
+cp ../examples/contracts/Greeter.sol 
+```
 
 We are now going to open the `bbox.sol` file and write in the contract code below:
 > We can do this quickly by copy-pasting the code below using the vim editor
 
-First we run `vim bbox.sol` which will present us with an empty file\
-We then copy the `contracts/bbox.sol` code below\
-Then back in the terminal:
+
+First we run `vim bbox.sol` which will present us with an empty file
+
+We then copy the `contracts/bbox.sol` code below:
 - Press `i`, which will put us in insert mode
 - Paste in the code
 - Press `escape` to exit from insert mode
