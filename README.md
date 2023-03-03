@@ -317,7 +317,7 @@ npx hardhat test --network localhost
 ```
 This tells hardhat to run the scripts located in the `test` directory, to the network specified as `localhost` (i.e. your machine)\
 After running this successfully, we should get a return something like: 
-```sh
+```sc
 Greeter
 Should return the new greeting once it's changed 
 ```
