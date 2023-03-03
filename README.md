@@ -39,7 +39,7 @@ Then:
 - You can name the instance whatever you like, even _super-fun-smart-contracts-time_
 
 Under the section: For Key Pair (login), select Create New Key Pair:\
-Select ED25519 key pair type, and select the `.pem` file type
+Select ED25519 key pair type, and select the `.ppk` file type
 **For MAC and Linux users**, it is recommended to use OpenSSH and the `.pem` file type\
 
 
