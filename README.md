@@ -55,23 +55,24 @@ Create that directory / folder now and call it `sc-deploy`, then relocate your `
 
 ### For MAC users
 
-If we are uisng MacOS, we will most likely need to ensure our key is not viewable, so we will run this command in the directory
+If we are uisng MacOS, we will most likely need to ensure our key is not viewable before we can use it to SSH to our instance.
+First, open a terminal window and navigate to the directory where our `.pem` key file is stored. 
+For those who are unfamiliar with using and navigating terminal on MAC, apple provides a useful guide: https://support.apple.com/en-gb/guide/terminal/apd5265185d-f365-44cb-8b09-71a064a42125/mac
+
+Once we have navigated to our directory in terminal, hopefully called `sc-deploy`, run this command: 
 ```sh
 chmod 400 aws-sc-key.pem
 ```
 
+Now, return to you AWS instance on the web, and take a look under the `SSH client` tab and follow the instructions for your machine.
 
 
-
-Click on Connect to Instance, and select the `SSH client` tab and follow the instructions for your machine\
-**On MAC and Linux** you will need to open a terminal window within the directory `sc-deploy` and connect\
-
-The client will suggest you run something like: `ssh -i "aws-sc-key.pem" ubuntu@ec2-99-99-99-99.compute-1.amazonaws.com` in the terminal window, do this now\
-When we try to connect for the first time we will be asked to add the key fingerprint, type or select `yes / OK`
+The client will suggest you run something like: `ssh -i "aws-sc-key.pem" ubuntu@ec2-99-99-99-99.compute-1.amazonaws.com` in the terminal window, do this now.
+When we try to connect for the first time we will be asked to add the key fingerprint, type or select `yes / OK`.
 
 We should now be connected to our personal AWS EC2 instance, hurrah!
 
-## If you are using Windows follow these instructions 
+### If you are using Windows follow these instructions 
 
 - Select Services -> EC2 -> Launch an instance
 - Select an Ubuntu Server
