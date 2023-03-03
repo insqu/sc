@@ -372,11 +372,11 @@ To do this, we will make use of a service that simplifies the process of interac
 We are going to use [alchemy.com](https://alchemy.com/?r=DM2MzkzNzUxODAyM) to manage our network\
 First head over to Alchemy and create a free account\
 For those who want to know what alchemy is and why we might use it, the alchemy website has a page devoted to this: https://docs.alchemy.com/alchemy/introduction/why-use-alchemy\
-> Note: we could use another service, such as Infura, but for our experiment Alchemy will suffice
+> Note: we could use another service, such as Infura, but for our tutorial, Alchemy will suffice
 
 ### Setting up a Goerli test network account 
 
-We are going to deploy on the Goerli test network, as this way we wont risk losing actually valuable ether\
+We are going to deploy on the Goerli test network, as this way we wont risk losing actually valuable ether.
 When we setup our alchemy app ensure we select `name:  exeter.sc`,  `chain: Ethereum` and `network: Goerli`\
 After setup on the main dashboard we should see our Goerli network and a column called `API KEY`.
 Make a note of your API KEY and our HTTP connection information.
@@ -407,7 +407,7 @@ and under module exports:
 ```js
   module.exports = {
     networks: {
-     rinkeby: {
+     goerli: {
          url: `https://eth-goerli.alchemyapi.io/v2/{YOUR_API_KEY}`,
         accounts: { mnemonic: mnemonic },
         },
@@ -437,7 +437,7 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
-  solidity: "0.7.4",
+  solidity: "0.7.3",
         networks: {
                 goerli: {
                 url: `https://eth-goerli.alchemyapi.io/v2/{YOUR_API_KEY}`,
@@ -453,7 +453,7 @@ Now we are ready to interact with the public Goerli test network using Hardhat
 ## The Hardhat Goerli console
 We in the `sc` directory we can run:
 ```sh 
-npx hardhat console --network rinkeby
+npx hardhat console --network goerli
 ```
 If our configuration file is correct we should some text and enter console mode with a `>` presented on screen\
 First lets list our accounts with the command 
