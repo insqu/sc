@@ -185,11 +185,13 @@ npx hardhat
 ```
 You will be prompted with questions
 Select the following responses in order 
-- 'Create a basic sample project'
-- accept the suggested project root
-- n
-- n
-- y 
+- select the first option
+- select to accept the suggested project root
+- select n
+- select n
+- select y 
+
+
 The final selection of yes will install dependencies required to run the pre-built Hardhat contract `Greeter.sol`, which we will look at later
 
 Wait for the setup to complete\
