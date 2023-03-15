@@ -13,11 +13,23 @@ Then
 ```sh
 sudo apt-get upgrade
 ```
+
+
+First, lets make a new smart contract directory, lets call it `sc2`
+
+```sh
+mkdir sc2
+```
+then:
+```sh
+cd sc2
+```
+
 Next we will install `node.js` using our package manager
 
 First we run:
 ```sh
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash
 ```
 then:
 ```sh
@@ -28,32 +40,7 @@ Now when we run
 ```sh
 node --version
 ```
-We should get `v16.XX.X`, for some value of X, just ensure that it starts with `v16`. 
-The next step is to clone the Github repository (repo).
-
-# Cloning our repo using Git
-
-We can now clone our repo with the command:
-```
-git clone https://github.com/insqu/sc.git
-```
-
-We should now have a directory called `sc`\
-Try the `ls` command and we should see the only directory is `sc`\
-We should now change directory so that we are working in to `sc`
-```sh
-cd sc
-```
-We can run the `ls` command now to see that the directory contains a `README.md` file and an `examples` directory
-```sh
-ls
-```
-We can remove the `README.md` file:
-```sh
-rm README.md
-```
-For now this is all we will do with git.
-From now on we are going to do all our work in this `sc` directory
+We should get `v18.XX.X`, for some value of X, just ensure that it starts with `v18`. 
 
 
 # Running Hardhat
@@ -64,10 +51,11 @@ First we will initialise npm (npm is the default package manager for Node.js)
 ```sh
 npm init -y
 ```
-We should see an initialisation file\
-If we rerun the `ls` command, we should see that the directory contains the file `package.json`\
+We should see an initialisation file
 
-We are going to the use Hardhat environment to build our smart contract. We are going to use a slightly older version of hardhat, version 2.0.11.
+If we rerun the `ls` command, we should see that the directory contains the file `package.json`
+
+We are going to the use Hardhat environment to build our smart contract. This time we will use a more up to date version of hardhat
 
 
 In our terminal in the `sc` directory we can run:
