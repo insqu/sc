@@ -143,25 +143,31 @@ contract Exeter_SC_token is ERC20, ERC20Burnable, Ownable {
 }
 ```
 
+#Task
+Importing this token into REMIX to see how it works.
 
 
 # Deploying to a public network 
-Having written our test code and tried them out locally, we are now going to deploy to a real world network\
-Connecting to a public network is a bit more involved that using our own built in network\
-To do this, we will make use of a service that simplifies the process of interacting with a blockchain network\
+Having written our test code and tried them out locally, we are now going to deploy to a real world network
+Connecting to a public network is a bit more involved that using our own built in network
+To do this, we will make use of a service that simplifies the process of interacting with a blockchain network
 
 
 ## Creating an alchemy account
 
-We are going to use [alchemy.com](https://alchemy.com/?r=DM2MzkzNzUxODAyM) to manage our network\
+Last time we should have our alchemy account, if not, you can set up your free account
+
+We are going to use [alchemy.com](https://alchemy.com/?r=DM2MzkzNzUxODAyM) to manage our network
 First head over to Alchemy and create a free account\
-For those who want to know what alchemy is and why we might use it, the alchemy website has a page devoted to this: https://docs.alchemy.com/alchemy/introduction/why-use-alchemy\
+For those who want to know what alchemy is and why we might use it, the alchemy website has a page devoted to this: https://docs.alchemy.com/alchemy/introduction/why-use-alchemy
+
 > Note: we could use another service, such as Infura, but for our tutorial, Alchemy will suffice
 
 ### Setting up a Goerli test network account 
 
 We are going to deploy on the Goerli test network, as this way we wont risk losing actually valuable ether.
-When we setup our alchemy app ensure we select `name:  exeter.sc`,  `chain: Ethereum` and `network: Goerli`\
+When we setup our alchemy app ensure we select `name:  exeter.sc`,  `chain: Ethereum` and `network: Goerli`
+
 After setup on the main dashboard we should see our Goerli network and a column called `API KEY`.
 Make a note of your API KEY and our HTTP connection information.
 
@@ -178,22 +184,24 @@ Create this file now, and populate the file with the following lines:
 ```vi
 {
   "mnemonic": "[YOUR_MNEMONICS]",
-  "alchemyApiKey": "[YOUR_APIKEY]"
+  "alchemyApiKey": "YOUR_APIKEY",
+  "privKey": "YOUR_METAMASK_PRIVATE_KEY"
 }
 ```
-Here `[YOUR_APIKEY]` refers to the API KEY we created from Alchemy earlier and `[YOUR_MNEMONICS]` is the list of mnemonics we stored in `sec.mnemonics`
+Here `[YOUR_APIKEY]` refers to the API KEY we created from Alchemy earlier and `[YOUR_MNEMONICS]` is the list of mnemonics we stored in `sec.mnemonics`. "YOUR_METAMASK_PRIVATE_KEY" is the private key for the metamask account you will use for this example. ALERT: use a fresh account, and do not use an account you have used before.
 
 We also need to alter the hardhat config file to include
 ```js
-const { alchemyApiKey, mnemonic } = require('./sec.json');
+const { alchemyApiKey, mnemonic, privKey } = require('./sec.json');
 ```
 and under module exports:
 ```js
   module.exports = {
     networks: {
      goerli: {
-         url: `https://eth-goerli.alchemyapi.io/v2/{YOUR_API_KEY}`,
+         url: `https://eth-goerli.alchemyapi.io/v2/${YOUR_API_KEY}`,
         accounts: { mnemonic: mnemonic },
+        %%%THIS NEEDS TO CHANGE BASED ON FILE
         },
        },
 };
@@ -201,8 +209,8 @@ and under module exports:
 
 In all your hardhat config file should look something like this:
 ```js 
-require("@nomiclabs/hardhat-waffle");
-const { alchemyApiKey, mnemonic } = require('./sec.json');
+require("@nomiclabs/hardhat-toolbox");
+const { alchemyApiKey, mnemonic, privKey } = require('./sec.json');
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
 
@@ -230,7 +238,7 @@ module.exports = {
    },
 };
 ```
-> note: you must replace `{YOUR_API_KEY}` with your _alchemy API_KEY_ 
+//> note: you must replace `{YOUR_API_KEY}` with your _alchemy API_KEY_ 
 
 Now we are ready to interact with the public Goerli test network using Hardhat
 
