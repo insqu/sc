@@ -263,6 +263,16 @@ One final thing before we can deploy our contract: we need some ether in our Goe
 The best way to do this is to simply search for a _goerli faucet_ using a web browser, and provide the faucet with one of the account numbers in the list you returned when you ran `accounts = await ethers.provider.listAccounts()`\
 It is simplest to use the first account number returned, so we will do that. Once you have received some test network eth, you should be able to run `(await ethers.provider.getBalance(accounts[0])).toString()` and see a positive number! 
 
+
+NOTE! THings we need to do:
+We need to install the openzepplin stuff, which may also mean we have to make sure we link to openzepplin properly, i.e. get rid of @4.8.2 in the preamble for the imports. We have to npx install openzepplin.
+
+Also, we have set the gas price to be quite low, as otheriwse it won't appear.
+
+We also need to import our token code from the contract address.
+
+We also need to create a deploy file, and don't forget we have to call it from the name of the contract itself.
+
 ## Deploying our contract on the Goerli network
 Now we are ready to deploy our contract on the Goerli test network. We can run: 
 ```
