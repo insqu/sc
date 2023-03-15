@@ -55,12 +55,12 @@ We should see an initialisation file
 
 If we rerun the `ls` command, we should see that the directory contains the file `package.json`
 
-We are going to the use Hardhat environment to build our smart contract. This time we will use a more up to date version of hardhat
+We are going to the use Hardhat environment to build our smart contract. This time we will use a more up to date version of hardhat.
 
 
-In our terminal in the `sc` directory we can run:
+In our terminal in the `sc2` directory we can run:
 ```sh
-npm install --save-dev hardhat@2.0.11
+npm install --save-dev hardhat
 ```
 
 Wait for Hardhat to install, then run
@@ -73,10 +73,10 @@ Select the following responses in order
 - select to accept the suggested project root
 - select n to the gitignore message
 - select n to the feedback message
-- select y to the depencies message
+- select y to install the depencies message
 
 
-The final selection of yes will install dependencies required to run the pre-built Hardhat contract `Greeter.sol`, which we will look at later
+The final selection of yes will install dependencies required to run the pre-built Hardhat contract `Lock.sol`, but for the most part we will not worry about that.
 
 Wait for the setup to complete.
 
@@ -89,149 +89,60 @@ You can read the `README.md` file in any way you like, one suggestion is to use 
 ```sh
 vim README.md
 ```
-For those unfamiliar with Vim (or Vi), it can be a little confusing at first. 
 
-
-You may want to look up Vim on a search engine to find commands, but for now it is sufficient to simply read the file _with your eyes_, and when you have absorbed it enter `:q` to exit out of the vim environment. You may need to use `:q!` then `enter` to quit vim. Ask if you get stuck!
-
-It is a good opportunity to try the commands in the the `README.md` file, and take a look at the outputs you get. In fact, that is exactly what we are going to do now
 
 ## Task 1
-Run `npx hardhat test`
-
-Then take a look in the test directory, what can we change in here?
-Take a look at, and run the rest of the commands in the `README.md` file. What outputs do you get?
+Try running `npx hardhat test` with this new hardhat environment, and take a look at what you get
 
 
-# Building our own contract
-We are now in a position to build our own contract
-Lets now run our list command `ls` to view the files in the directory
-We should now see directories, `.json` files `.js` files and `.md` files
-One of the directories will be called `contracts`
-Lets move into the the contracts directory
-```sh
-cd contracts
-```
-We are going to create `solidity` contracts within the `contracts` directory
-First we will create a file bbox.sol
-```sh
-touch bbox.sol
-```
-This directory should now contain two `.sol` files: `Lock.sol` and `bbox.sol`. 
 
-We are going to import our `Greeter.sol` contract from the Github directory that we copied earlier.
-Run the command
+# Building our own ERC20 token contract
 
-```sh 
-cp ../examples/contracts/Greeter.sol 
-```
+Last time we built bbox.sol and compiled our Greeter.sol contract.
 
-We are now going to open the `bbox.sol` file and write in the contract code below:
-> We can do this quickly by copy-pasting the code below using the vim editor
+This time we are going to do things a bit differently. We are going to deploy a token smart contract, using openzeppelin.
 
-
-First we run `vim bbox.sol` which will present us with an empty file
-
-We then copy the `contracts/bbox.sol` code below:
-- Press `i`, which will put us in insert mode
-- Paste in the code
-- Press `escape` to exit from insert mode
-- Type `:wq` to write and quit out of vim 
-
+The contract we are going to deploy will look like this:
 
 ```js
-// contracts/bbox.sol
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.9;
 
-contract bbox {
-    uint256 private _value;
+import "@openzeppelin/contracts@4.8.2/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts@4.8.2/token/ERC20/extensions/ERC20Burnable.sol";
+import "@openzeppelin/contracts@4.8.2/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
 
-    // Emitted when the stored value changes
-    event ValueChanged(uint256 value);
-
-    // Stores a new value in the contract
-    function store(uint256 value) public {
-        _value = value;
-        emit ValueChanged(value);
+contract Exeter_SC_token is ERC20, ERC20Burnable, Ownable {
+    constructor() ERC20("<TOKEN-NAME>", "<TOKEN-CODE>") {
+        _mint(msg.sender, 1000 * 10 ** decimals());
     }
 
-    // Reads the last stored value
-    function retrieve() public view returns (uint256) {
-        return _value;
+    event LogString(string message);
+
+    function mint(address to, uint256 amount) public onlyOwner {
+        _mint(to, amount);
+    }
+
+    function burn(uint256 amount) public virtual override {
+    //    turns off burn function, can only use burnWithMessage function
+    }
+
+    function burnWithMessage(uint256 amount) public virtual returns (string memory) {
+        // Your custom logic here
+        // For example, restrict burning to a specific address:
+        require(msg.sender == owner(), "MyCustomToken: Only the owner can burn tokens");
+
+        // Burn the tokens
+        _burn(msg.sender, amount);
+
+        // Return a string value
+        return string(abi.encodePacked("Burning ", Strings.toString(amount), " of EXSC"));
+        
     }
 }
 ```
 
-Now we will ensure that Hardhat is using the right solidity compiler `solc`\
-> Note: our contract `bbox.sol` uses solidity version `0.8.0`
-We need specify this in our hardhat configuration file
-
-First we will navigate out of the `contracts` directory to our parent `sc` directory
-```sc
-cd .. 
-```
-We can check we are in the correct directory by using the command `pwd`. If we are in the correct directory, we should see `/home/ubuntu/sc` returned\
-We can now open the file `hardhat.config.js` using vim
-```sc
-vim hardhat.config.js
-```
-We should be able to see a line that specifies the solidity version `solidity: "0.8.4"`, if we don't, we can change it to 0.8.4 using the insert command `i` as we did above, and writing to the file using `esc` then `:w`.
-Close vim using the command `:q!`\
-We are now ready to compile our contract\
-From the `sc` directory run:
-```sc
-npx hardhat compile
-```
-We should get the message `Compiled 1 Solidity file successfully`
-> note: it may say 1 or 3 depending on whether you previously compiled the contracts
-
-The compile command will try to compile all contracts in the contracts and examples directory automatically\
-We should now see that the `artifacts` directory has been populated
-
-We will come back to `bbox.sol` later on, in Task 3
-
-## Interacting with our contract
-Smart contracts exist on the blockchain, but as of yet, we do not have a blockchain to deploy our contract to\
-Therefore, for this next part we are going to _spin-up_ a local (_local to your own machine_) blockchain to deploy our contracts on\
-Fortunately for us Hardhat provides simple functionality that allows us to do this\
-
-Open a new terminal window and connect to our AWS instance as before, then navigate to our `sc` directory\
-In this new terminal window, run:
-```sc
-npx hardhat node
-```
-Hardhat should output a list of 20 accounts, each with their account number, 10,000 ETH and their corresponding private key
-> **Note: these are default values, do not use these accounts and their private keys for anything other than this demonstration**
-We will leave this terminal window open for now, as it is running a simulated Hardhat blockchain for our development purposes
-
-Now lets deploy our Hardhat created `Greeter.sol` contract onto this chain for fun!
-In our other terminal window (not the one running the hardhat node), we can run
-```sh
-npx hardhat test --network localhost
-```
-This tells hardhat to run the scripts located in the `test` directory, to the network specified as `localhost` (i.e. your machine)
-
-After running this successfully, we should get a return something like: 
-```sc
-Greeter
-Should return the new greeting once it's changed 
-```
-This is pretty boring, but if we take a look in our other terminal window, we should have seen some interesting stuff happening!
-
-We should be able to see that two blocks have been created and that in the first block a contract called Greeter has been deployed with the greeting _Hello, World!_, and that in the second block a block the set greeting function has been called that changes _Hello, world!_ to _Hola, mundo!_. We should also see the contract address that has been created and the transaction addresses.
-
-Fantastic, we have actually deployed a real life EVM contract (even if it isn't on a public chain, and it is a very simple contract)
-
-## Task 2
-Take a look at the `Greeter.sol` contract an in the `contracts` directory, and take a look at the scripts used to deploy it in the `test/sample-test.js` file\
-Try to understand how the script interacts with the code. What could you change in the scripts or the contracts code to make the contract perform differently? Change the contract script so that instead of changing to _Hola, mundo!_, it says: _Nobody expects the Spanish Inquisition!_
-
-## Question 2
-What does Greeter.sol do what does bbox.sol do? Take a look at the code, and try to work out what would happen if certain commands are called. 
-> Hint: remix ide https://remix-project.org/ allows you to create and intereact with contracts, inclusing useful titorials and ways to deploy them
-
-We could now create and deploy our contracts on this local blockchain provided by Hardhat, however, this is more of an environment for testing and is not publicly reachable. Moreover, when we quit the hardhat node process, all state is lost, meaning the contract we have deployed and interacted with no longer exists, and will have to be created again. Try it if you like!
 
 
 # Deploying to a public network 
