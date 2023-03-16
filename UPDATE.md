@@ -390,8 +390,20 @@ Import your token to MetaMask. Open MetaMask, select your account, and under the
 In the token contract address box, paste in the contract address you created. MetaMask should auto-fill the rest of the data. Remember that the contract address is different from the address you used to fund the creation of the contract.
 
 You should now see you have 1000 of the token you created in your MetaMask wallet!
-
+We can now send this to others on our module. Be careful to only share this with accounts used for testing, and do not use an account with any value attached.
 
 ## Task 7
-Interact with your token on Remix.
+Interact with your token on Remix. Here is a breif guide on how to do it. 
+
+- We will interact with our new contract using Remix and MetaMask
+- First we need to open our contract file in the contracts directory and copy the code in that file
+- Open Remix in our new web browser, that contains the newly installed MetaMask that we setup
+- In Remix, create a new Workspace, and create a new file. Call it the same as your contract file on your AWS instance
+- Paste in your contract code that you copied in the second step
+- Compile the code in Remix
+- Now select the Deploy and Run Transactions tab on the left sidebar
+- Select environment and change that to Injected Provider - MetaMask
+- Then fill in the At Address tab with the smart contract address
+- When that is filled in you can click the At Adress button and you should see your contract call functions on the left of the screen
+- You can now interact with your contract like we have done before, but now it alters the actual contract state!
 
