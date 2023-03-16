@@ -170,6 +170,8 @@ Later we are going to fund this metamask account with some Goerli testnetwork et
 - Click advanced
 - Scroll down and toggle 'show test networks' to on
 
+We can now, at the top of our MetaMask select the Network drop down and change it to Goerli. Do this now. 
+
 
 
 
