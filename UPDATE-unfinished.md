@@ -151,7 +151,9 @@ Importing this token into REMIX to see how it works. You can play around with th
 
 We are now going to set up metamask in a web broswer.
 
-Important, if you already have metamask, it is reccomended that you set up a separate MetaMask account in another web broswer.
+> Important, if you already have metamask, it is reccomended that you set up a separate MetaMask account in another web broswer.
+> Whatever you do, **DO NOT** use a pre-existing account for this tutorial.
+
 For now, we are going to assume you do not have MetaMask installed on the Brave or Firefox web browser. 
 
 First download and install the web browser:
@@ -173,30 +175,28 @@ Later we are going to fund this metamask account with some Goerli testnetwork et
 We can now, at the top of our MetaMask select the Network drop down and change it to Goerli. Do this now. 
 
 
-
-
 # Deploying to a public network 
-Having written our test code and tried them out locally, we are now going to deploy to a real world network
-Connecting to a public network is a bit more involved that using our own built in network
-To do this, we will make use of a service that simplifies the process of interacting with a blockchain network
+Having written our test code and tried them out locally, we are now going to deploy to a real world network.
+Connecting to a public network is a bit more involved that using our own built in network.
+To do this, we will make use of a service that simplifies the process of interacting with a blockchain network.
 
 
 ## Creating an alchemy account
 
-Last time we should have our alchemy account, if not, you can set up your free account
+Last time we should have our alchemy account, if not, you can set up your free account.
 
-We are going to use [alchemy.com](https://alchemy.com/?r=DM2MzkzNzUxODAyM) to manage our network
-First head over to Alchemy and create a free account\
+We are going to use [alchemy.com](https://alchemy.com/?r=DM2MzkzNzUxODAyM) to manage our network.
 For those who want to know what alchemy is and why we might use it, the alchemy website has a page devoted to this: https://docs.alchemy.com/alchemy/introduction/why-use-alchemy
 
-> Note: we could use another service, such as Infura, but for our tutorial, Alchemy will suffice
+> Note: we could use another service, such as Infura, but for our tutorial, Alchemy will suffice.
 
 ### Setting up a Goerli test network account 
 
 We are going to deploy on the Goerli test network, as this way we wont risk losing actually valuable ether.
-When we setup our alchemy app ensure we select `name:  exeter.sc`,  `chain: Ethereum` and `network: Goerli`
+In Alchemy, select to set up a new app. When we setup our alchemy app ensure we select `name:  exeter.sc`,  `chain: Ethereum` and `network: Goerli`
 
 After setup on the main dashboard we should see our Goerli network and a column called `API KEY`.
+Select this to view your API KEY.
 Make a note of your API KEY and our HTTP connection information.
 
 Now we will run the command
