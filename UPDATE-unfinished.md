@@ -224,8 +224,8 @@ and under module exports:
     solidity: "0.8.18",
         networks: {
             goerli: {
-            url: `https://eth-goerli.alchemyapi.io/v2/${YOUR_API_KEY}`,
-            accounts: [privKey],
+                url: `https://eth-goerli.alchemyapi.io/v2/${YOUR_API_KEY}`,
+                accounts: [privKey],
         },
        },
 };
@@ -234,32 +234,16 @@ and under module exports:
 In all your hardhat config file should look something like this:
 ```js 
 require("@nomiclabs/hardhat-toolbox");
-const { alchemyApiKey, mnemonic, privKey } = require('./sec.json');
-// This is a sample Hardhat task. To learn how to create your own go to
-// https://hardhat.org/guides/create-task.html
+const { alchemyApiKey, privKey } = require('./sec.json');
 
-task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
-  const accounts = await hre.ethers.getSigners();
-
-  for (const account of accounts) {
-    console.log(account.address);
-  }
-});
-
-// You need to export an object to set up your config
-// Go to https://hardhat.org/config/ to learn more
-
-/**
- * @type import('hardhat/config').HardhatUserConfig
- */
 module.exports = {
-  solidity: "0.7.3",
-        networks: {
-                goerli: {
-                url: `https://eth-goerli.alchemyapi.io/v2/{YOUR_API_KEY}`,
-                accounts: { mnemonic: mnemonic },
-     },
-   },
+  solidity: "0.8.18",
+      networks: {
+          goerli: {
+            url: `https://eth-goerli.alchemyapi.io/v2/${YOUR_API_KEY}`,
+            accounts: [privKey],
+        },
+       },
 };
 ```
 //> note: you must replace `{YOUR_API_KEY}` with your _alchemy API_KEY_ 
