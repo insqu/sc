@@ -246,12 +246,11 @@ module.exports = {
        },
 };
 ```
-//> note: you must replace `{YOUR_API_KEY}` with your _alchemy API_KEY_ 
 
 Now we are ready to interact with the public Goerli test network using Hardhat
 
 ## The Hardhat Goerli console
-We in the `sc` directory we can run:
+We in the `sc2` directory we can run:
 ```sh 
 npx hardhat console --network goerli
 ```
@@ -265,7 +264,7 @@ We can then check the balance of any of our accounts with the command
 (await ethers.provider.getBalance(accounts[0])).toString()
 ```
 
-One final thing before we can deploy our contract: we need some ether in our Goerli test network
+One final thing before we can deploy our contract: we need some ether in our Goerli test network.
 
 ## Getting some Goerli eth
 The best way to do this is to simply search for a _goerli faucet_ using a web browser, and provide the faucet with one of the account numbers in the list you returned when you ran `accounts = await ethers.provider.listAccounts()`\
