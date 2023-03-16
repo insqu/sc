@@ -380,24 +380,15 @@ Now we should see our ERC20 contract, the final line will be our contract addres
 **Huzzah! We have just deployed our smart contract on a working testnet environment!**
 
 
-
-
-Once this is complete, we can return to our Alchemy tab in our browser and look up the contract that was created
+Once this is complete, we can return to our Alchemy tab in our browser and look up the contract that was created.
 If we take a look at the trace in Etherscan we can find the contract we created and decode the raw data using their inbuilt functions, here is an example: https://goerli.etherscan.io/address/0xa3cec46acde90952a83e7992196631626c626076
 
-That's it, we did it! We have successfully created a smart contract and deployed it on an Ethereum network!
+We have successfully created a smart contract and deployed it on an Ethereum Goerli network!
 
-## Task 3
-Using the guide from here: https://docs.openzeppelin.com/learn/developing-smart-contracts complete the bbox.sol setup and deploy it locally to the Goerli test network\
-> note: in the guide, they use Box.sol, not bbox.sol, so watch out for that
+## Task Y
 
 
-## Task 4
-Now the interesting bit, take a look at the OpenZeppelin documents here: https://docs.openzeppelin.com/contracts/4.x/erc20
-and create a more interesting contract.\
-Your contract type will be an ERC20 contract, issuing a token.\
-Create and deploy a new token to the Goerli network with an interesting name, then distribute that token to your colleagues!
-- What is the name of your token? 
-- What addresses did you send the token to? 
-- and how was it achieved? 
+
+## Task Z
+
 
