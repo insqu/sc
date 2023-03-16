@@ -1,7 +1,7 @@
 # Deploying Smart Contracts on the Ethereum testnet Goerli (Update)
 
 ## Introduction
-This instruction set follows on, and updates the instructions from README.md. Therefore we assume you will have set up an AWS instance or Ubuntu / linux instance, and are in that environment.
+This instruction set follows on from, and updates, the instructions from README.md. Therefore we assume you will have set up an AWS instance or Ubuntu / linux instance, and are working within that environment.
 
 # Setting up our environment
 
@@ -386,7 +386,7 @@ If we take a look at the trace in Etherscan we can find the contract we created 
 We have successfully created a smart contract and deployed it on an Ethereum Goerli network!
 
 ## Task 6
-Import your token to MetaMask. 
+Import your token to MetaMask. Open MetaMask, select your account, and under the assets tab scroll down to `import token`.
 
 
 ## Task 7
