@@ -306,10 +306,7 @@ The best way to do this is to simply search for a _goerli faucet_ using a web br
 You can try the website: https://goerlifaucet.com/ if you have a working Alchemy account.
 
 
-
-
-NOTE! Things we need to do:
-We need to install the openzepplin stuff, which may also mean we have to make sure we link to openzepplin properly,  We have to npx install openzepplin.
+## creating a script to deploy our contract
 
 Also, we have set the gas price to be quite low, as otheriwse it won't appear.
 
