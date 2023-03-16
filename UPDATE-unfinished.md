@@ -158,7 +158,17 @@ First download and install the web browser:
 - Firefox https://www.mozilla.org/en-GB/firefox/
 - Brave https://brave.com/
 
-After installing either new broswer, we can select and follow the install instructions for MetaMask here: https://metamask.io/
+After installing either new broswer, we can select and follow the install instructions for MetaMask here
+- Install metamask: https://metamask.io/
+
+Follow the install instructions, and create a new account. Call this account something memorable, it can be whatever you like!
+
+Later we are going to fund this metamask account with some Goerli testnetwork eth. In order to see the Goerli eth, we need to open metamask, go into advanced settings and select to show the test networks. We can do this by:
+- Click on the MetaMask icon
+- Click on the picture of your new test account
+- Click settings
+- Click advanced
+- Scroll down and toggle 'show test networks' to on
 
 
 
