@@ -102,7 +102,11 @@ Last time we built bbox.sol and compiled our Greeter.sol contract.
 
 This time we are going to do things a bit differently. We are going to deploy a token smart contract, using OpenZeppelin.
 
-The contract we are going to deploy will look like this:
+The contract we are going to deploy will look like this.
+
+
+## Task 2
+Copy the following code and save it as a `token_name.sol` file in your `contracts` directory. Hint you can find what directroy you are in using: `pwd`, you can list the files and directories using `ls`, you can change directory using `cd name_of_directory` where name_of_directory is a directory name. You can create a file using `vim filename`, where filename is the name of the following file.  
 
 ```js
 // SPDX-License-Identifier: MIT
@@ -272,11 +276,16 @@ One final thing before we can deploy our contract: we need some ether in our Goe
 ## Getting some Goerli eth
 The best way to do this is to simply search for a _goerli faucet_ using a web browser, and provide the faucet with your MetaMask account number (the public one, not the private key). Once you have received some test network eth, you should be able to run `(await ethers.provider.getBalance(accounts[0])).toString()` and see a positive number! 
 
-You can try the website: https://goerlifaucet.com/ if you have an Alchemy account.
+You can try the website: https://goerlifaucet.com/ if you have a working Alchemy account.
 
+
+## Setting up Openzeppelin
+```sh
+npm install @openzeppelin/contracts
+```
 
 NOTE! Things we need to do:
-We need to install the openzepplin stuff, which may also mean we have to make sure we link to openzepplin properly, i.e. get rid of @4.8.2 in the preamble for the imports. We have to npx install openzepplin.
+We need to install the openzepplin stuff, which may also mean we have to make sure we link to openzepplin properly,  We have to npx install openzepplin.
 
 Also, we have set the gas price to be quite low, as otheriwse it won't appear.
 
