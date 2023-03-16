@@ -338,25 +338,47 @@ main()
 Note again that `<TOKEN-NAME>` needs to be defined. You must change this name to the name that you gave your smart contract.  
 
 
+## Deploying our contract on the Goerli network
+
 We should now be in a position to deploy our contract.
 Try running the following code:
 
 ```sh
 npx hardhat run scripts/sc_deploy.js --network goerli
 ```
+> note: we may have to wait while a block is created
 
-Also, we have set the gas price to be quite low, as otheriwse it won't appear.
+For some of you, this may work, for others, this may claim there is an error to do with gas fee.
+
+In the case that there is an error due to the gas fee, we may need to change the gas price, to do this we can add the following line of code to our hardhat config file: `gasPrice: 100000000,`.
+
+## Task X
+Add the gas price to your hardhat config file, so that the module.exports section looks like this:
+```js
+module.exports = {
+  solidity: "0.8.18",
+      networks: {
+          goerli: {
+            url: `https://eth-goerli.alchemyapi.io/v2/${YOUR_API_KEY}`,
+            accounts: [privKey],
+            gasPrice: 100000000,
+        },
+       },
+};
+```
+
+
 
 We also need to import our token code from the contract address.
 
-We also need to create a deploy file, and don't forget we have to call it from the name of the contract itself.
 
-## Deploying our contract on the Goerli network
+
+
 Now we are ready to deploy our contract on the Goerli test network. We can run: 
 ```
 npx hardhat test --network goerli
 ```
-> note: we may have to wait while a block is created
+
 Once this is complete, we can return to our Alchemy tab in our browser and look up the contract that was created
 If we take a look at the trace in Etherscan we can find the contract we created and decode the raw data using their inbuilt functions, here is an example: https://rinkeby.etherscan.io/tx/0xa703de1f2770a08be1d24e95bb35acf88ce8840e0b8d2e04aa3f82399136f62c
 
