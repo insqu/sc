@@ -150,7 +150,7 @@ contract Exeter_SC_token is ERC20, ERC20Burnable, Ownable {
 ```
 
 
-## Compiling the contract and setting up OpenZeppelin
+# Compiling the contract and setting up OpenZeppelin
 
 Before we can launch this contract, we first need to compile it. We can do this from our parent directory `sc2`. 
 If we are in our contracts directory, use `cd ../` to change to the `sc2` directory.
@@ -221,7 +221,7 @@ For those who want to know what alchemy is and why we might use it, the alchemy 
 
 > Note: we could use another service, such as Infura, but for our tutorial, Alchemy will suffice.
 
-### Setting up a Goerli test network account 
+## Setting up a Goerli test network account 
 
 We are going to deploy on the Goerli test network, as this way we wont risk losing actually valuable ether.
 In Alchemy, select to set up a new app. When we setup our alchemy app ensure we select `name:  exeter.sc`,  `chain: Ethereum` and `network: Goerli`
@@ -305,7 +305,7 @@ The best way to do this is to simply search for a _goerli faucet_ using a web br
 
 You can try the website: https://goerlifaucet.com/ if you have a working Alchemy account.
 
-## creating a script to deploy our contract
+# Creating a deployment script for our contract
 
 Recall from last time that we have a scripts directory containing our JavaScript code to deploy our contract.
 
@@ -352,7 +352,7 @@ For some of you, this may work, for others, this may claim there is an error to 
 
 In the case that there is an error due to the gas fee, we may need to change the gas price, to do this we can add the following line of code to our hardhat config file: `gasPrice: 100000000,`.
 
-## Task X
+## Task 5
 Add the gas price to your hardhat config file, so that the module.exports section looks like this:
 ```js
 module.exports = {
@@ -385,10 +385,10 @@ If we take a look at the trace in Etherscan we can find the contract we created 
 
 We have successfully created a smart contract and deployed it on an Ethereum Goerli network!
 
-## Task Y
+## Task 6
 Import your token to MetaMask. 
 
 
-## Task Z
+## Task 7
 Interact with your token on Remix.
 
