@@ -369,7 +369,7 @@ module.exports = {
 
 This will reduce the gas price we pay for each unit of gas used. This is good is we don't have much test eth to use.
 
-For those who did not deploy their contract to run the first time, run the follwing code again:
+For those who did not manage to deploy their contract the first time, run the follwing code again:
 
 ```sh
 npx hardhat run scripts/sc_deploy.js --network goerli
@@ -386,9 +386,9 @@ If we take a look at the trace in Etherscan we can find the contract we created 
 We have successfully created a smart contract and deployed it on an Ethereum Goerli network!
 
 ## Task Y
-
+Import your token to MetaMask. 
 
 
 ## Task Z
-
+Interact with your token on Remix.
 
