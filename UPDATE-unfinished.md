@@ -72,7 +72,7 @@ Select the following responses in order
 - select the first option
 - select to accept the suggested project root
 - select n to the gitignore message
-- select n to the feedback message
+- select n to the feedback message (if you see this message)
 - select y to install the depencies message
 
 
