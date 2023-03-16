@@ -335,6 +335,15 @@ main()
   });
 ```
 
+Note again that `<TOKEN-NAME>` needs to be defined. You must change this name to the name that you gave your smart contract.  
+
+
+We should now be in a position to deploy our contract.
+Try running the following code:
+
+```sh
+npx hardhat run scripts/sc_deploy.js --network goerli
+```
 
 Also, we have set the gas price to be quite low, as otheriwse it won't appear.
 
