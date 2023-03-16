@@ -375,9 +375,9 @@ For those who did not deploy their contract to run the first time, run the follw
 npx hardhat run scripts/sc_deploy.js --network goerli
 ```
 
+Now we should see our ERC20 contract, the final line will be our contract address.
 
-We also need to import our token code from the contract address.
-
+**Huzzah! We have just deployed our smart contract on a working testnet environment!**
 
 
 
