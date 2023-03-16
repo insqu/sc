@@ -144,7 +144,7 @@ contract Exeter_SC_token is ERC20, ERC20Burnable, Ownable {
 ```
 
 #Task
-Importing this token into REMIX to see how it works.
+Importing this token into REMIX to see how it works. You can play around with the function calls on the left side of the screen.
 
 
 # Deploying to a public network 
