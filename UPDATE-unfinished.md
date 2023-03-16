@@ -108,6 +108,8 @@ The contract we are going to deploy will look like this.
 ## Task 2
 Copy the following code and save it as a `token_name.sol` file in your `contracts` directory. Hint you can find what directroy you are in using: `pwd`, you can list the files and directories using `ls`, you can change directory using `cd name_of_directory` where name_of_directory is a directory name. You can create a file using `vim filename`, where filename is the name of the file you want to create.  
 
+Once the contract is imported, there are two variables for you to change: `<TOKEN-NAME>` and  `<TOKEN-CODE>`. The token name is the long name, like Bitcoin or Ether, and the token code is usually the shorthand code for it, such as BTC or ETH. You can pick whatever you like, but do try to make it unique and do not use and spaces.
+
 ```js
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
@@ -170,10 +172,10 @@ Now we can run our command again:
 ```sh 
 npx hardhat compile
 ```
-And this time we should see a different outcome
+And this time we should see a different outcome!
 
 ## Task 3
-Importing this token into REMIX to see how it works. You can play around with the function calls on the left side of the screen.
+Import this token contract into REMIX to see how it works. You can play around with the function calls on the left side of the screen.
 
 
 # Setting up MetaMask
