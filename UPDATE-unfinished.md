@@ -176,8 +176,8 @@ We can now, at the top of our MetaMask select the Network drop down and change i
 
 
 # Deploying to a public network 
-Having written our test code and tried them out locally, we are now going to deploy to a real world network.
-Connecting to a public network is a bit more involved that using our own built in network.
+We are now going to deploy to a real world network.
+Connecting to a public network is a bit more involved that using the Hardhat built in network.
 To do this, we will make use of a service that simplifies the process of interacting with a blockchain network.
 
 
@@ -221,11 +221,11 @@ const { alchemyApiKey, privKey } = require('./sec.json');
 and under module exports:
 ```js
   module.exports = {
-    networks: {
-     goerli: {
-         url: `https://eth-goerli.alchemyapi.io/v2/${YOUR_API_KEY}`,
-        accounts: { mnemonic: mnemonic },
-        %%%THIS NEEDS TO CHANGE BASED ON FILE
+    solidity: "0.8.18",
+        networks: {
+            goerli: {
+            url: `https://eth-goerli.alchemyapi.io/v2/${YOUR_API_KEY}`,
+            accounts: [privKey],
         },
        },
 };
