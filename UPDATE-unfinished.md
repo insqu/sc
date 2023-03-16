@@ -270,11 +270,12 @@ We can then check the balance of any of our accounts with the command
 One final thing before we can deploy our contract: we need some ether in our Goerli test network account.
 
 ## Getting some Goerli eth
-The best way to do this is to simply search for a _goerli faucet_ using a web browser, and provide the faucet with one of the account numbers in the list you returned when you ran `accounts = await ethers.provider.listAccounts()`.
-We need to provide the faucet with our MetaMask account, so we will do that. Once you have received some test network eth, you should be able to run `(await ethers.provider.getBalance(accounts[0])).toString()` and see a positive number! 
+The best way to do this is to simply search for a _goerli faucet_ using a web browser, and provide the faucet with your MetaMask account number (the public one, not the private key). Once you have received some test network eth, you should be able to run `(await ethers.provider.getBalance(accounts[0])).toString()` and see a positive number! 
+
+You can try the website: https://goerlifaucet.com/ if you have an Alchemy account.
 
 
-NOTE! THings we need to do:
+NOTE! Things we need to do:
 We need to install the openzepplin stuff, which may also mean we have to make sure we link to openzepplin properly, i.e. get rid of @4.8.2 in the preamble for the imports. We have to npx install openzepplin.
 
 Also, we have set the gas price to be quite low, as otheriwse it won't appear.
