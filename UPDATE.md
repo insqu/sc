@@ -386,7 +386,10 @@ If we take a look at the trace in Etherscan we can find the contract we created 
 We have successfully created a smart contract and deployed it on an Ethereum Goerli network!
 
 ## Task 6
-Import your token to MetaMask. Open MetaMask, select your account, and under the assets tab scroll down to `import token`.
+Import your token to MetaMask. Open MetaMask, select your account, and under the assets tab scroll down to `import token`. 
+In the token contract address box, paste in the contract address you created. MetaMask should auto-fill the rest of the data. Remember that the contract address is different from the address you used to fund the creation of the contract.
+
+You should now see you have 1000 of the token you created in your MetaMask wallet.
 
 
 ## Task 7
