@@ -106,7 +106,7 @@ The contract we are going to deploy will look like this.
 
 
 ## Task 2
-Copy the following code and save it as a `token_name.sol` file in your `contracts` directory. Hint you can find what directroy you are in using: `pwd`, you can list the files and directories using `ls`, you can change directory using `cd name_of_directory` where name_of_directory is a directory name. You can create a file using `vim filename`, where filename is the name of the file you want to create.  
+Copy the following code and save it as a `token_name.sol` file in your `contracts` directory. Hint you can find what directory you are in using: `pwd`, you can list the files and directories using `ls`, you can change directory using `cd name_of_directory` where name_of_directory is a directory name. You can create a file using `vim filename`, where filename is the name of the file you want to create.  
 
 Once the contract is imported, there are two variables for you to change: `<TOKEN-NAME>` and  `<TOKEN-CODE>`. The token name is the long name, like Bitcoin or Ether, and the token code is usually the shorthand code for it, such as BTC or ETH. You can pick whatever you like, but do try to make it unique and do not use and spaces.
 
@@ -159,7 +159,7 @@ To compile, we run:
 ```sh 
 npx hardhat compile
 ```
-Unless we have already installedn openzeppelin, this will most likely give us an error.
+Unless we have already installed openzeppelin, this will most likely give us an error.
 
 We need to install the openzeppelin libraries to compile this contract.
 We can do that with the command:
@@ -180,9 +180,9 @@ Import this token contract into REMIX to see how it works. You can play around w
 
 # Setting up MetaMask
 
-We are now going to set up metamask in a web browser.
+We are now going to set up MetaMask in a web browser.
 
-> Important, if you already have metamask, it is recommended that you set up a separate MetaMask account in another web browser.
+> Important, if you already have MetaMask, it is recommended that you set up a separate MetaMask account in another web browser.
 > Whatever you do, **DO NOT** use a pre-existing account for this tutorial.
 
 For now, we are going to assume you do not have MetaMask installed on the Brave or Firefox web browser. 
@@ -196,7 +196,7 @@ After installing either new browser, we can select and follow the install instru
 
 Follow the install instructions, and create a new account. Call this account something memorable, it can be whatever you like!
 
-Later we are going to fund this metamask account with some Goerli testnetwork eth. In order to see the Goerli eth, we need to open metamask, go into advanced settings and select to show the test networks. We can do this by:
+Later we are going to fund this MetaMask account with some Goerli test network eth. In order to see the Goerli eth, we need to open MetaMask, go into advanced settings and select to show the test networks. We can do this by:
 - Click on the MetaMask icon
 - Click on the picture of your new test account
 - Click settings
@@ -307,11 +307,11 @@ You can try the website: https://goerlifaucet.com/ if you have a working Alchemy
 
 ## creating a script to deploy our contract
 
-Recall from last time that we have a scripts directory containing our javscript code to deploy our contract.
+Recall from last time that we have a scripts directory containing our JavaScript code to deploy our contract.
 
 From our main `sc2` directory, we can change to our `scripts` directory with `cd scripts`.
 
-Then we will create the file: `vim sc_deploy.js`, and copy in the folling code.
+Then we will create the file: `vim sc_deploy.js`, and copy in the following code.
 
 ```js
 const hre = require("hardhat");
@@ -369,7 +369,7 @@ module.exports = {
 
 This will reduce the gas price we pay for each unit of gas used. This is good is we don't have much test eth to use.
 
-For those who did not manage to deploy their contract the first time, run the follwing code again:
+For those who did not manage to deploy their contract the first time, run the following code again:
 
 ```sh
 npx hardhat run scripts/sc_deploy.js --network goerli
