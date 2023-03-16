@@ -255,7 +255,7 @@ and under module exports:
     solidity: "0.8.18",
         networks: {
             goerli: {
-                url: `https://eth-goerli.alchemyapi.io/v2/${YOUR_API_KEY}`,
+                url: `https://eth-goerli.alchemyapi.io/v2/${alchemyApiKey}`,
                 accounts: [privKey],
         },
        },
@@ -359,7 +359,7 @@ module.exports = {
   solidity: "0.8.18",
       networks: {
           goerli: {
-            url: `https://eth-goerli.alchemyapi.io/v2/${YOUR_API_KEY}`,
+            url: `https://eth-goerli.alchemyapi.io/v2/${alchemyApiKey}`,
             accounts: [privKey],
             gasPrice: 100000000,
         },
@@ -367,6 +367,13 @@ module.exports = {
 };
 ```
 
+This will reduce the gas price we pay for each unit of gas used. This is good is we don't have much test eth to use.
+
+For those who did not deploy their contract to run the first time, run the follwing code again:
+
+```sh
+npx hardhat run scripts/sc_deploy.js --network goerli
+```
 
 
 We also need to import our token code from the contract address.
@@ -374,13 +381,9 @@ We also need to import our token code from the contract address.
 
 
 
-Now we are ready to deploy our contract on the Goerli test network. We can run: 
-```
-npx hardhat test --network goerli
-```
 
 Once this is complete, we can return to our Alchemy tab in our browser and look up the contract that was created
-If we take a look at the trace in Etherscan we can find the contract we created and decode the raw data using their inbuilt functions, here is an example: https://rinkeby.etherscan.io/tx/0xa703de1f2770a08be1d24e95bb35acf88ce8840e0b8d2e04aa3f82399136f62c
+If we take a look at the trace in Etherscan we can find the contract we created and decode the raw data using their inbuilt functions, here is an example: https://goerli.etherscan.io/address/0xa3cec46acde90952a83e7992196631626c626076
 
 That's it, we did it! We have successfully created a smart contract and deployed it on an Ethereum network!
 
