@@ -147,7 +147,32 @@ contract Exeter_SC_token is ERC20, ERC20Burnable, Ownable {
 }
 ```
 
-## Task 2
+
+## Compiling the contract and setting up OpenZeppelin
+
+Before we can launch this contract, we first need to compile it. We can do this from our parent directory `sc2`. 
+If we are in our contracts directory, use `cd ../` to change to the `sc2` directory.
+
+To compile, we run:
+```sh 
+npx hardhat compile
+```
+Unless we have already installedn openzeppelin, this will most likely give us an error.
+
+We need to install the openzeppelin libraries to compile this contract.
+We can do that with the command:
+
+```sh
+npm install @openzeppelin/contracts
+```
+
+Now we can run our command again: 
+```sh 
+npx hardhat compile
+```
+And this time we should see a different outcome
+
+## Task 3
 Importing this token into REMIX to see how it works. You can play around with the function calls on the left side of the screen.
 
 
@@ -214,7 +239,7 @@ Create this file now, and populate the file with the following lines:
 ```
 Here `YOUR_APIKEY` refers to the API KEY we created from Alchemy earlier and `YOUR_METAMASK_PRIVATE_KEY` is the private key for the MetaMask account you will use for this example. 
 
-## Task 3
+## Task 4
 Export your MetaMask private key from your newly created MetaMask wallet. Copy that private key and store it in your `sec.json` file. Why should you keep this a secret? What could happen if you shared this private key with someone?
 
 
@@ -279,10 +304,7 @@ The best way to do this is to simply search for a _goerli faucet_ using a web br
 You can try the website: https://goerlifaucet.com/ if you have a working Alchemy account.
 
 
-## Setting up Openzeppelin
-```sh
-npm install @openzeppelin/contracts
-```
+
 
 NOTE! Things we need to do:
 We need to install the openzepplin stuff, which may also mean we have to make sure we link to openzepplin properly,  We have to npx install openzepplin.
