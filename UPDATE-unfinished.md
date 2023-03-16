@@ -143,8 +143,24 @@ contract Exeter_SC_token is ERC20, ERC20Burnable, Ownable {
 }
 ```
 
-#Task
+## Task 2
 Importing this token into REMIX to see how it works. You can play around with the function calls on the left side of the screen.
+
+
+# Setting up MetaMask
+
+We are now going to set up metamask in a web broswer.
+
+Important, if you already have metamask, it is reccomended that you set up a separate MetaMask account in another web broswer.
+For now, we are going to assume you do not have MetaMask installed on the Brave or Firefox web browser. 
+
+First download and install the web browser:
+- Firefox https://www.mozilla.org/en-GB/firefox/
+- Brave https://brave.com/
+
+After installing either new broswer, we can select and follow the install instructions for MetaMask here: https://metamask.io/
+
+
 
 
 # Deploying to a public network 
