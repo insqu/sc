@@ -298,15 +298,43 @@ We can then check the balance of any of our accounts with the command
 (await ethers.provider.getBalance(accounts[0]))
 ```
 
-One final thing before we can deploy our contract: we need some ether in our Goerli test network account.
+Another thing before we can deploy our contract: we need some ether in our Goerli test network account.
 
 ## Getting some Goerli eth
 The best way to do this is to simply search for a _goerli faucet_ using a web browser, and provide the faucet with your MetaMask account number (the public one, not the private key). Once you have received some test network eth, you should be able to run `(await ethers.provider.getBalance(accounts[0])).toString()` and see a positive number! 
 
 You can try the website: https://goerlifaucet.com/ if you have a working Alchemy account.
 
-
 ## creating a script to deploy our contract
+
+Recall from last time that we have a scripts directory containing our javscript code to deploy our contract.
+
+From our main `sc2` directory, we can change to our `scripts` directory with `cd scripts`.
+
+Then we will create the file: `vim sc_deploy.js`, and copy in the folling code.
+
+```js
+const hre = require("hardhat");
+
+async function main() {
+  const [deployer] = await ethers.getSigners();
+  console.log("Deploying contract with the account:", deployer.address);
+  console.log("Account balance:", (await deployer.getBalance()).toString());
+
+  const Token = await ethers.getContractFactory("<TOKEN-NAME>");
+  const token = await Token.deploy();
+
+  console.log("EXSC address:", token.address);
+}
+
+main()
+  .then(() => process.exit(0))
+  .catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+```
+
 
 Also, we have set the gas price to be quite low, as otheriwse it won't appear.
 
@@ -320,7 +348,7 @@ Now we are ready to deploy our contract on the Goerli test network. We can run:
 npx hardhat test --network goerli
 ```
 > note: we may have to wait while a block is created
-Once this is complete, we can return to our Alchemy tab in our browser and look up the contract that was created\
+Once this is complete, we can return to our Alchemy tab in our browser and look up the contract that was created
 If we take a look at the trace in Etherscan we can find the contract we created and decode the raw data using their inbuilt functions, here is an example: https://rinkeby.etherscan.io/tx/0xa703de1f2770a08be1d24e95bb35acf88ce8840e0b8d2e04aa3f82399136f62c
 
 That's it, we did it! We have successfully created a smart contract and deployed it on an Ethereum network!
