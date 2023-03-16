@@ -1,7 +1,7 @@
 # Deploying Smart Contracts on the Ethereum testnet Goerli (Update)
 
 ## Introduction
-This instruction set follows on, and updates the istructions from README.md. Therefore we assume you will have set up an AWS instance or Ubuntu / linux instance, and are in that environment.
+This instruction set follows on, and updates the instructions from README.md. Therefore we assume you will have set up an AWS instance or Ubuntu / linux instance, and are in that environment.
 
 # Setting up our environment
 
@@ -73,7 +73,7 @@ Select the following responses in order
 - select to accept the suggested project root
 - select n to the gitignore message
 - select n to the feedback message (if you see this message)
-- select y to install the depencies message
+- select y to install the dependencies message
 
 
 The final selection of yes will install dependencies required to run the pre-built Hardhat contract `Lock.sol`, but for the most part we will not worry about that.
@@ -100,7 +100,7 @@ Try running `npx hardhat test` with this new hardhat environment, and take a loo
 
 Last time we built bbox.sol and compiled our Greeter.sol contract.
 
-This time we are going to do things a bit differently. We are going to deploy a token smart contract, using openzeppelin.
+This time we are going to do things a bit differently. We are going to deploy a token smart contract, using OpenZeppelin.
 
 The contract we are going to deploy will look like this:
 
@@ -149,9 +149,9 @@ Importing this token into REMIX to see how it works. You can play around with th
 
 # Setting up MetaMask
 
-We are now going to set up metamask in a web broswer.
+We are now going to set up metamask in a web browser.
 
-> Important, if you already have metamask, it is reccomended that you set up a separate MetaMask account in another web broswer.
+> Important, if you already have metamask, it is recommended that you set up a separate MetaMask account in another web browser.
 > Whatever you do, **DO NOT** use a pre-existing account for this tutorial.
 
 For now, we are going to assume you do not have MetaMask installed on the Brave or Firefox web browser. 
@@ -160,7 +160,7 @@ First download and install the web browser:
 - Firefox https://www.mozilla.org/en-GB/firefox/
 - Brave https://brave.com/
 
-After installing either new broswer, we can select and follow the install instructions for MetaMask here
+After installing either new browser, we can select and follow the install instructions for MetaMask here
 - Install metamask: https://metamask.io/
 
 Follow the install instructions, and create a new account. Call this account something memorable, it can be whatever you like!
@@ -199,28 +199,24 @@ After setup on the main dashboard we should see our Goerli network and a column 
 Select this to view your API KEY.
 Make a note of your API KEY and our HTTP connection information.
 
-Now we will run the command
-```sh
-npx mnemonics
-```
-You may be prompted to install a package first, if so accept the prompt and install\
-You will then be given 12 words which we will store in a secure file that we will call `sec.mnemonics`\
-Copy and paste your mnemonics into this file (remember we can create a new file using vim)
 
-After you have created this file, we will create a new file called `sec.json`\
+We will create a new file called `sec.json` to store our secure information in, such as our API.
 Create this file now, and populate the file with the following lines:
 ```vi
 {
-  "mnemonic": "[YOUR_MNEMONICS]",
   "alchemyApiKey": "YOUR_APIKEY",
   "privKey": "YOUR_METAMASK_PRIVATE_KEY"
 }
 ```
-Here `[YOUR_APIKEY]` refers to the API KEY we created from Alchemy earlier and `[YOUR_MNEMONICS]` is the list of mnemonics we stored in `sec.mnemonics`. "YOUR_METAMASK_PRIVATE_KEY" is the private key for the metamask account you will use for this example. ALERT: use a fresh account, and do not use an account you have used before.
+Here `YOUR_APIKEY` refers to the API KEY we created from Alchemy earlier and `YOUR_METAMASK_PRIVATE_KEY` is the private key for the MetaMask account you will use for this example. 
+
+## Task 3
+Export your MetaMask private key from your newly created MetaMask wallet. Copy that private key and store it in your `sec.json` file. Why should you keep this a secret? What could happen if you shared this private key with someone?
+
 
 We also need to alter the hardhat config file to include
 ```js
-const { alchemyApiKey, mnemonic, privKey } = require('./sec.json');
+const { alchemyApiKey, privKey } = require('./sec.json');
 ```
 and under module exports:
 ```js
