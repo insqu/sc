@@ -254,21 +254,24 @@ We in the `sc2` directory we can run:
 ```sh 
 npx hardhat console --network goerli
 ```
-If our configuration file is correct we should some text and enter console mode with a `>` presented on screen\
+If our configuration file is correct we should some text and enter console mode with a `>` presented on screen.
+
 First lets list our accounts with the command 
 ```js
 accounts = await ethers.provider.listAccounts()
 ```
+This should list our MetaMask account public key, for the account with the private key that we imported earlier.
+
 We can then check the balance of any of our accounts with the command  
 ```js
-(await ethers.provider.getBalance(accounts[0])).toString()
+(await ethers.provider.getBalance(accounts[0]))
 ```
 
-One final thing before we can deploy our contract: we need some ether in our Goerli test network.
+One final thing before we can deploy our contract: we need some ether in our Goerli test network account.
 
 ## Getting some Goerli eth
-The best way to do this is to simply search for a _goerli faucet_ using a web browser, and provide the faucet with one of the account numbers in the list you returned when you ran `accounts = await ethers.provider.listAccounts()`\
-It is simplest to use the first account number returned, so we will do that. Once you have received some test network eth, you should be able to run `(await ethers.provider.getBalance(accounts[0])).toString()` and see a positive number! 
+The best way to do this is to simply search for a _goerli faucet_ using a web browser, and provide the faucet with one of the account numbers in the list you returned when you ran `accounts = await ethers.provider.listAccounts()`.
+We need to provide the faucet with our MetaMask account, so we will do that. Once you have received some test network eth, you should be able to run `(await ethers.provider.getBalance(accounts[0])).toString()` and see a positive number! 
 
 
 NOTE! THings we need to do:
