@@ -108,7 +108,7 @@ The contract we are going to deploy will look like this.
 ## Task 2
 Copy the following code and save it as a `token_name.sol` file in your `contracts` directory. Hint you can find what directory you are in using: `pwd`, you can list the files and directories using `ls`, you can change directory using `cd name_of_directory` where name_of_directory is a directory name. You can create a file using `vim filename`, where filename is the name of the file you want to create.  
 
-Once the contract is imported, there are two variables for you to change: `<TOKEN-NAME>` and  `<TOKEN-CODE>`. The token name is the long name, like Bitcoin or Ether, and the token code is usually the shorthand code for it, such as BTC or ETH. You can pick whatever you like, but do try to make it unique and do not use and spaces.
+Once the contract is imported, there are three variables for you to change, the name of the contract, which is currently `Exeter_SC_token`, the `<TOKEN-NAME>` and the  `<TOKEN-CODE>`. The token name is the long name, like Bitcoin or Ether, and the token code is usually the shorthand code for it, such as BTC or ETH. You can pick whatever you like, but do try to make it unique and do not use and spaces.
 
 ```js
 // SPDX-License-Identifier: MIT
