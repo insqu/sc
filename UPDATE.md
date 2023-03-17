@@ -264,14 +264,14 @@ and under module exports:
 
 In all your hardhat config file should look something like this:
 ```js 
-require("@nomiclabs/hardhat-toolbox");
+require("@nomicfoundation/hardhat-toolbox");
 const { alchemyApiKey, privKey } = require('./sec.json');
 
 module.exports = {
   solidity: "0.8.18",
       networks: {
           goerli: {
-            url: `https://eth-goerli.alchemyapi.io/v2/${YOUR_API_KEY}`,
+            url: `https://eth-goerli.alchemyapi.io/v2/${alchemyApiKey}`,
             accounts: [privKey],
         },
        },
